@@ -5,6 +5,7 @@ public class Tile {
     private boolean hasBomb;
     private boolean hasFlag;
     private boolean cleared;
+    private int bombsNearby;
 
 
     // Constructors
@@ -21,7 +22,15 @@ public class Tile {
     public String toString(){
         if(this.getHasFlag() == true){
             return "|  f  |";
-        } else {
+        }
+        else if(this.getCleared() == true){
+            return "|  " + bombsNearby + "  |";
+        }
+        // FOR DEBUGGING
+        else if(this.getHasBomb()){
+            return "|  X  |";
+        }
+        else {
             return "|  ?  |";
         }
     }
@@ -56,10 +65,17 @@ public class Tile {
     }
 
     public boolean getCleared(){
-        return hasBomb;
+        return cleared;
     }
     public void setCleared(boolean value){
         cleared = value;
+    }
+
+    public int getBombsNearby(){
+        return bombsNearby;
+    }
+    public void setBombsNearby(int bombsNearby){
+        this.bombsNearby = bombsNearby;
     }
 
 }
