@@ -9,12 +9,31 @@ public class Tile {
 
     // Constructors
     public Tile(){
+        this.setHasFlag(false);
+        this.setCleared(false);
         if(Math.random() < 0.2){
             setHasBomb(true);
         }
     }
 
     // Methods
+    @Override
+    public String toString(){
+        if(this.getHasFlag() == true){
+            return "|  f  |";
+        } else {
+            return "|  ?  |";
+        }
+    }
+
+    public boolean select(){
+        if(this.checkForBomb() == true){
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     public boolean checkForBomb(){
         if(hasBomb){
             return true;
@@ -30,20 +49,17 @@ public class Tile {
     }
 
     public boolean getHasFlag(){
-        return hasBomb;
+        return hasFlag;
     }
-    private void setHasFlag(boolean value){
+    public void setHasFlag(boolean value){
         hasFlag = value;
     }
 
     public boolean getCleared(){
         return hasBomb;
     }
-    private void setCleared(boolean value){
+    public void setCleared(boolean value){
         cleared = value;
     }
-
-
-
 
 }
