@@ -52,7 +52,9 @@ public class Main {
                     }
                     player.increaseScore();
                     selectedTile.setBombsNearby(grid.showBombsNearby(rowChoice, columnChoice));
-                    grid.showAdjacentCleared(rowChoice, columnChoice);
+                    if(selectedTile.getBombsNearby() < 1){
+                        grid.showAdjacentCleared(rowChoice, columnChoice);
+                    }
                     inputOk = true;
                 }
                 else {

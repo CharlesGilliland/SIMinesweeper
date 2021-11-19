@@ -38,18 +38,28 @@ public class Grid {
         return total;
     }
 
-    public void showAdjacentCleared(int r, int c){
+    public void checkAdjacent(int r, int c){
         for(int i = r-1; i <= r+1; i++){
             for(int j = c-1; j <= c+1; j ++){
-                Tile selectedTiled = wholeGrid[i][j];
                 if(i < 0 || j < 0 || i > height || j > width){
                     continue;
                 }
+
+
+            }
+        }
+    }
+
+    public void showAdjacentCleared(int r, int c){
+        for(int i = r-1; i <= r+1; i++){
+            for(int j = c-1; j <= c+1; j ++){
+                if(i < 0 || j < 0 || i > height || j > width){
+                    continue;
+                }
+                Tile selectedTiled = wholeGrid[i][j];
+                selectedTiled.setBombsNearby(showBombsNearby(i, j));
                 if(selectedTiled.getHasBomb() == false){
                     selectedTiled.setCleared(true);
-                    if(selectedTiled.getBombsNearby() == 0){
-                        showAdjacentCleared(i, j);
-                    }
                 }
             }
         }
