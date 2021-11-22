@@ -26,10 +26,12 @@ public class Tile {
         else if(this.getCleared() == true){
             return "|  " + bombsNearby + "  |";
         }
-        // FOR DEBUGGING
+        // UNCOMMENT FOR DEBUGGING
+        /*
         else if(this.getHasBomb()){
             return "|  X  |";
         }
+        */
         else {
             return "|  ?  |";
         }

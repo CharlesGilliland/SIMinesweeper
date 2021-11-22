@@ -38,6 +38,7 @@ public class Grid {
         return total;
     }
 
+    /*
     public void checkAdjacent(int r, int c){
         for(int i = r-1; i <= r+1; i++){
             for(int j = c-1; j <= c+1; j ++){
@@ -49,17 +50,21 @@ public class Grid {
             }
         }
     }
+    */
 
     public void showAdjacentCleared(int r, int c){
         for(int i = r-1; i <= r+1; i++){
             for(int j = c-1; j <= c+1; j ++){
-                if(i < 0 || j < 0 || i > height || j > width){
+                if(i < 0 || j < 0 || i >= height || j >= width){
                     continue;
                 }
-                Tile selectedTiled = wholeGrid[i][j];
-                selectedTiled.setBombsNearby(showBombsNearby(i, j));
-                if(selectedTiled.getHasBomb() == false){
-                    selectedTiled.setCleared(true);
+                Tile selectedTile = wholeGrid[i][j];
+                selectedTile.setBombsNearby(showBombsNearby(i, j));
+                if(selectedTile.getBombsNearby() == 0 && selectedTile.getCleared() == false){
+                    showAdjacentCleared(i, j);
+                }
+                if(selectedTile.getHasBomb() == false){
+                    selectedTile.setCleared(true);
                 }
             }
         }
@@ -69,7 +74,7 @@ public class Grid {
         int totalMines = 0;
         for(int i = r-1; i <= r+1; i++){
             for(int j = c-1; j <= c+1; j ++){
-                if(i < 0 || j < 0 || i > height || j > width){
+                if(i < 0 || j < 0 || i >= height || j >= width){
                     continue;
                 }
                 if(wholeGrid[i][j].getHasBomb()){
@@ -79,6 +84,20 @@ public class Grid {
         }
         return totalMines;
     }
+
+    public boolean checkBoardCleared(){
+        boolean boardCleared = true;
+        for(int i = 0; i < height; i++){
+            for(int j = 0; j < width; j++){
+                if(wholeGrid[i][j].getCleared() == false){
+                    boardCleared = false;
+                }
+            }
+        }
+        return boardCleared;
+    }
+
+
 
     @Override
     public String toString(){

@@ -23,6 +23,7 @@ public class Main {
 
         do{
             System.out.println(grid);
+            System.out.println(player.getName() + " - Current Score: " + player.getScore());
 
             System.out.println("Enter the row of the tile you want to select");
             int rowChoice = Integer.parseInt(input.next());
@@ -47,7 +48,7 @@ public class Main {
                 else if (flagOrSelect.equals("s")){
                     boolean success = player.selectTile(selectedTile);
                     if(!success) {
-                        System.out.println("You've lost the game!");
+                        player.setHasWon(false);
                         gameOver = true;
                     }
                     player.increaseScore();
@@ -62,7 +63,18 @@ public class Main {
                     flagOrSelect = input.next();
                 }
             } while(!inputOk);
+            if(grid.checkBoardCleared()){
+                gameOver = true;
+                player.setHasWon(true);
+            }
         } while(!gameOver);
+        if(player.getHasWon()){
+            System.out.println("Congratulations  " + player.getName() + "!");
+            System.out.println("You finished with a score of " + player.getScore());
+        } else {
+            System.out.println("You've lost the game, with a final score of " + player.getScore());
+            System.out.println("Better luck next time!");
+        }
 
 
 

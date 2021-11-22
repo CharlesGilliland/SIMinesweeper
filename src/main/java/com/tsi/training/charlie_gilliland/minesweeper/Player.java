@@ -2,9 +2,10 @@ package com.tsi.training.charlie_gilliland.minesweeper;
 
 public class Player {
     // Attributes
-    String name;
+    private String name;
     private int flagsRemaining;
     private int score;
+    private boolean hasWon = false;
 
     // Constructor
     public Player(String name, int flags){
@@ -35,8 +36,24 @@ public class Player {
         return this.flagsRemaining;
     }
 
+    public int getScore(){
+        return this.score;
+    }
+
     public void increaseScore(){
         this.score++;
+    }
+
+    public boolean getHasWon(){
+        return hasWon;
+    }
+
+    public void setHasWon(boolean value){
+        hasWon = value;
+    }
+
+    public String getName(){
+        return this.name;
     }
 
 }
