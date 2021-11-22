@@ -28,7 +28,7 @@ public class Player {
         if(tile.getCleared()){
             return;
         }
-        tile.setHasFlag(tile.getHasFlag() ? false : true);
+        tile.setHasFlag(!tile.getHasFlag());
     }
 
     public int getFlagsRemaining(){
