@@ -4,14 +4,19 @@ public class Grid {
     // Attributes
     int height;
     int width;
+    int totalTiles;
+    int difficulty;
+    int totalBombs;
 
     Tile[][] wholeGrid;
 
 
     // Constructor
-    public Grid(int h, int w){
+    public Grid(int h, int w, int d){
         this.height = h;
         this.width = w;
+        this.totalTiles = h * w;
+        this.difficulty = d;
         this.wholeGrid = populateGrid();
     }
 
@@ -24,6 +29,26 @@ public class Grid {
             }
         }
         return wholeGrid;
+    }
+
+    public void setDifficulty(int d){
+        switch(d){
+            case 5:
+                this.setTotalBombs((int)(totalTiles/2.5));
+                break;
+            case 4:
+                this.setTotalBombs((int)(totalTiles/3.125));
+                break;
+            case 3:
+                this.setTotalBombs((int)(totalTiles/4.16));
+                break;
+            case 2:
+                this.setTotalBombs((int)(totalTiles/6.25));
+                break;
+            default:
+                this.setTotalBombs((int)(totalTiles/12.5));
+                break;
+        }
     }
 
     public int getTotalBombs(){
@@ -102,5 +127,27 @@ public class Grid {
             result.append("\n");
         }
         return result.toString();
+    }
+
+    public Tile[][] getWholeGrid(){
+        return this.wholeGrid;
+    }
+
+    public void setTotalBombs(int total){
+        this.totalBombs = total;
+    }
+
+    public void assignBombs(){
+        while(this.totalBombs > 0){
+            int randomHeight = (int)(Math.random() * height);
+            int randomWidth = (int)(Math.random() * width);
+            Tile selectedTile = this.wholeGrid[randomHeight][randomWidth];
+            if(selectedTile.getHasBomb()){
+                continue;
+            } else {
+                selectedTile.setHasBomb(true);
+                this.totalBombs--;
+            }
+        }
     }
 }

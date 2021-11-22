@@ -12,9 +12,6 @@ public class Tile {
     public Tile(){
         this.setHasFlag(false);
         this.setCleared(false);
-        if(Math.random() < 0.2){
-            setHasBomb(true);
-        }
     }
 
     // Methods
@@ -31,6 +28,7 @@ public class Tile {
             return "|  X  |";
         }
          */
+
         else {
             return "|  ?  |";
         }
@@ -39,7 +37,7 @@ public class Tile {
     public boolean getHasBomb(){
         return hasBomb;
     }
-    private void setHasBomb(boolean value){
+    public void setHasBomb(boolean value){
         hasBomb = value;
     }
 

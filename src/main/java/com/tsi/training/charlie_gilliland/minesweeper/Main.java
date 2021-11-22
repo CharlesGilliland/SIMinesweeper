@@ -13,7 +13,15 @@ public class Main {
         int height = Integer.parseInt(input.next());
         System.out.print("Width: ");
         int width = Integer.parseInt(input.next());
-        Grid grid = new Grid(height,width);
+        // Setting difficulty
+        System.out.println("Enter difficulty (1 - 5): ");
+        int difficulty = Integer.parseInt(input.next());
+        Grid grid = new Grid(height,width, 1);
+        grid.setDifficulty(difficulty);
+        grid.assignBombs();
+
+
+
 
         // Creating Player
         System.out.print("Enter your player name:");
