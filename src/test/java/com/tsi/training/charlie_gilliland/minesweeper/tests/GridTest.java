@@ -29,11 +29,26 @@ public class GridTest {
     }
 
     @Test
-    public void testSetDifficulty(){
+    public void setDifficultyTest(){
         Grid testGrid = new Grid(10,10);
-        // testGrid.setDifficulty();
+        int result = testGrid.setDifficulty(5);
+        Assertions.assertEquals(40, result, "The number of bombs set by the difficulty is wrong");
+    }
 
-
+    @Test
+    public void showAdjacentClearedTest(){
+        Grid testGrid = new Grid(3, 3);
+        // A new grid is created without any bombs
+        testGrid.showAdjacentCleared(1, 1);
+        boolean clearedCheck = true;
+        for(int i = 0; i < 3 ; i++){
+            for(int j = 0; j < 3; j++){
+                if(!testGrid.getWholeGrid()[i][j].getCleared()){
+                    clearedCheck = false;
+                }
+            }
+        }
+        Assertions.assertTrue(clearedCheck, "The tiles surrounding were not cleared");
     }
 
 

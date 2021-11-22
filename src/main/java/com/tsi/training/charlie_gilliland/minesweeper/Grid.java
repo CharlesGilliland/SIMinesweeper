@@ -47,17 +47,8 @@ public class Grid {
     }
 
 
-
     public int getTotalBombs(){
-        int total = 0;
-        for(int i = 0; i < height; i++){
-            for(int j = 0; j < width; j++){
-                if(this.wholeGrid[i][j].getHasBomb()){
-                    total++;
-                }
-            }
-        }
-        return total;
+        return totalBombs;
     }
 
     public void setTotalBombs(){
