@@ -65,7 +65,12 @@ public class Main {
             } while(!inputOk);
             if(grid.checkBoardCleared()){
                 gameOver = true;
-                player.setHasWon(true);
+                if(grid.checkFlaggedCorrect()){
+                    player.setHasWon(true);
+                } else {
+                    player.setHasWon(false);
+                }
+
             }
         } while(!gameOver);
         if(player.getHasWon()){

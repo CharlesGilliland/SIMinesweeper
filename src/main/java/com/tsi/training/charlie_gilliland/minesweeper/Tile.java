@@ -27,11 +27,11 @@ public class Tile {
             return "|  " + bombsNearby + "  |";
         }
         // UNCOMMENT FOR DEBUGGING
-        /*
+
         else if(this.getHasBomb()){
             return "|  X  |";
         }
-        */
+
         else {
             return "|  ?  |";
         }

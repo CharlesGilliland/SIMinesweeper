@@ -86,12 +86,26 @@ public class Grid {
         boolean boardCleared = true;
         for(int i = 0; i < height; i++){
             for(int j = 0; j < width; j++){
-                if(!wholeGrid[i][j].getCleared()){
+                if(!wholeGrid[i][j].getCleared() && !wholeGrid[i][j].getHasFlag()){
                     boardCleared = false;
                 }
             }
         }
         return boardCleared;
+    }
+
+    public boolean checkFlaggedCorrect(){
+        boolean flagsCorrect = true;
+        for(int i = 0; i < height; i++){
+            for(int j = 0; j < width; j++){
+                if(wholeGrid[i][j].getHasFlag()){
+                    if(!wholeGrid[i][j].getHasBomb()){
+                        flagsCorrect = false;
+                    }
+                }
+            }
+        }
+        return flagsCorrect;
     }
 
     @Override
