@@ -25,11 +25,10 @@ public class Player {
     }
 
     public void setFlag(Tile tile){
-        if (tile.getHasFlag()) {
-            tile.setHasFlag(false);
-        } else {
-            tile.setHasFlag(true);
+        if(tile.getCleared()){
+            return;
         }
+        tile.setHasFlag(tile.getHasFlag() ? false : true);
     }
 
     public int getFlagsRemaining(){

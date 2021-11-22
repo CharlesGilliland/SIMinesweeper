@@ -94,8 +94,6 @@ public class Grid {
         return boardCleared;
     }
 
-
-
     @Override
     public String toString(){
         StringBuilder result = new StringBuilder();
