@@ -27,7 +27,7 @@ public class Tile {
         else if(this.getHasBomb()){
             return "|  X  |";
         }
-         */
+        */
 
         else {
             return "|  ?  |";

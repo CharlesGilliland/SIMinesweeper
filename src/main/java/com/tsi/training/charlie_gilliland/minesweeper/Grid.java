@@ -12,11 +12,10 @@ public class Grid {
 
 
     // Constructor
-    public Grid(int h, int w, int d){
+    public Grid(int h, int w){
         this.height = h;
         this.width = w;
         this.totalTiles = h * w;
-        this.difficulty = d;
         this.wholeGrid = populateGrid();
     }
 
@@ -31,25 +30,23 @@ public class Grid {
         return wholeGrid;
     }
 
-    public void setDifficulty(int d){
+    public int setDifficulty(int d){
+        this.difficulty = d;
         switch(d){
             case 5:
-                this.setTotalBombs((int)(totalTiles/2.5));
-                break;
+                return ((int)(totalTiles/2.5));
             case 4:
-                this.setTotalBombs((int)(totalTiles/3.125));
-                break;
+                return ((int)(totalTiles/3.125));
             case 3:
-                this.setTotalBombs((int)(totalTiles/4.16));
-                break;
+                return ((int)(totalTiles/4.16));
             case 2:
-                this.setTotalBombs((int)(totalTiles/6.25));
-                break;
+                return ((int)(totalTiles/6.25));
             default:
-                this.setTotalBombs((int)(totalTiles/12.5));
-                break;
+                return ((int)(totalTiles/12.5));
         }
     }
+
+
 
     public int getTotalBombs(){
         int total = 0;
@@ -61,6 +58,10 @@ public class Grid {
             }
         }
         return total;
+    }
+
+    public void setTotalBombs(){
+        this.totalBombs = this.setDifficulty(difficulty);
     }
 
     public void showAdjacentCleared(int r, int c){
@@ -131,10 +132,6 @@ public class Grid {
 
     public Tile[][] getWholeGrid(){
         return this.wholeGrid;
-    }
-
-    public void setTotalBombs(int total){
-        this.totalBombs = total;
     }
 
     public void assignBombs(){

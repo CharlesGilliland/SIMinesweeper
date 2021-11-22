@@ -16,8 +16,9 @@ public class Main {
         // Setting difficulty
         System.out.println("Enter difficulty (1 - 5): ");
         int difficulty = Integer.parseInt(input.next());
-        Grid grid = new Grid(height,width, 1);
+        Grid grid = new Grid(height,width);
         grid.setDifficulty(difficulty);
+        grid.setTotalBombs();
         grid.assignBombs();
 
 

@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 public class GridTest {
     @Test
     public void populateGridTest(){
-        Grid testGrid = new Grid(5, 5, 1);
+        Grid testGrid = new Grid(5, 5);
         Tile[][] exampleGrid = new Tile[5][5];
         // Creating Tiles in example grid
         boolean classMatch = true;
@@ -26,6 +26,14 @@ public class GridTest {
         Assertions.assertEquals(testGrid.getWholeGrid().length, exampleGrid.length, "The arrays have a different number of rows");
         // Testing the amount of columns
         Assertions.assertEquals(testGrid.getWholeGrid()[0].length, exampleGrid[0].length, "The arrays have a different number of columns");
+    }
+
+    @Test
+    public void testSetDifficulty(){
+        Grid testGrid = new Grid(10,10);
+        // testGrid.setDifficulty();
+
+
     }
 
 
