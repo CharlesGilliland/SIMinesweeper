@@ -8,21 +8,21 @@ public class TileTest {
 
 
     @Test
-    public void toStringFlaggedTest(){
+    public void testToStringFlagged(){
         Tile testTile = new Tile();
         testTile.setHasFlag(true);
         Assertions.assertEquals("|  f  |", testTile.toString());
     }
 
     @Test
-    public void toStringClearedTest(){
+    public void testToStringCleared(){
         Tile testTile = new Tile();
         testTile.setBombsNearby(1);
         testTile.setCleared(true);
         Assertions.assertEquals("|  1  |", testTile.toString());
     }
 
-    @Test public void toStringUnknownTest(){
+    @Test public void testToStringUnknown(){
         Tile testTile = new Tile();
         Assertions.assertEquals("|  ?  |", testTile.toString());
     }
