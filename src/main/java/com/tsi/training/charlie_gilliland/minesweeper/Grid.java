@@ -98,10 +98,8 @@ public class Grid {
         boolean flagsCorrect = true;
         for(int i = 0; i < height; i++){
             for(int j = 0; j < width; j++){
-                if(wholeGrid[i][j].getHasFlag()){
-                    if(!wholeGrid[i][j].getHasBomb()){
-                        flagsCorrect = false;
-                    }
+                if(wholeGrid[i][j].getHasFlag() && !wholeGrid[i][j].getHasBomb()){
+                    flagsCorrect = false;
                 }
             }
         }
