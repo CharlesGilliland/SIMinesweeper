@@ -20,10 +20,10 @@ public class Tile {
     // Methods
     @Override
     public String toString(){
-        if(this.getHasFlag() == true){
+        if(this.getHasFlag()){
             return "|  f  |";
         }
-        else if(this.getCleared() == true){
+        else if(this.getCleared()){
             return "|  " + bombsNearby + "  |";
         }
         // UNCOMMENT FOR DEBUGGING
@@ -35,21 +35,6 @@ public class Tile {
         else {
             return "|  ?  |";
         }
-    }
-
-    public boolean select(){
-        if(this.checkForBomb() == true){
-            return false;
-        } else {
-            return true;
-        }
-    }
-
-    public boolean checkForBomb(){
-        if(hasBomb){
-            return true;
-        }
-        return false;
     }
 
     public boolean getHasBomb(){

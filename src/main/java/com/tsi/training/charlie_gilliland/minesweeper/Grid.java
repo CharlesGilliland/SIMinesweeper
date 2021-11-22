@@ -17,7 +17,7 @@ public class Grid {
 
     // Methods
     public Tile[][] populateGrid(){
-        Tile[][] wholeGrid = new Tile[this.height][this.width];
+        wholeGrid = new Tile[this.height][this.width];
         for(int i = 0; i < height; i++){
             for(int j = 0; j < width; j++){
                 wholeGrid[i][j] = new Tile();
@@ -60,10 +60,7 @@ public class Grid {
                 }
                 Tile selectedTile = wholeGrid[i][j];
                 selectedTile.setBombsNearby(showBombsNearby(i, j));
-                if(selectedTile.getBombsNearby() == 0 && selectedTile.getCleared() == false){
-                    showAdjacentCleared(i, j);
-                }
-                if(selectedTile.getHasBomb() == false){
+                if(!selectedTile.getHasBomb()){
                     selectedTile.setCleared(true);
                 }
             }
@@ -89,7 +86,7 @@ public class Grid {
         boolean boardCleared = true;
         for(int i = 0; i < height; i++){
             for(int j = 0; j < width; j++){
-                if(wholeGrid[i][j].getCleared() == false){
+                if(!wholeGrid[i][j].getCleared()){
                     boardCleared = false;
                 }
             }

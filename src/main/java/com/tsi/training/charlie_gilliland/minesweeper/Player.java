@@ -16,7 +16,7 @@ public class Player {
 
     // Methods
     public boolean selectTile(Tile tile){
-        if(tile.getHasBomb() == true){
+        if(tile.getHasBomb()){
             return false;
         }
         tile.setCleared(true);
@@ -25,7 +25,7 @@ public class Player {
     }
 
     public void setFlag(Tile tile){
-        if(tile.getHasFlag() == true){
+        if (tile.getHasFlag()) {
             tile.setHasFlag(false);
         } else {
             tile.setHasFlag(true);
