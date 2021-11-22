@@ -46,7 +46,6 @@ public class Grid {
         }
     }
 
-
     public int getTotalBombs(){
         return totalBombs;
     }
@@ -102,6 +101,8 @@ public class Grid {
         for(int i = 0; i < height; i++){
             for(int j = 0; j < width; j++){
                 if(wholeGrid[i][j].getHasFlag() && !wholeGrid[i][j].getHasBomb()){
+                    flagsCorrect = false;
+                } else if(!wholeGrid[i][j].getHasFlag() && wholeGrid[i][j].getHasBomb()){
                     flagsCorrect = false;
                 }
             }

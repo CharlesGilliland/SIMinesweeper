@@ -17,11 +17,11 @@ public class Tile {
     // Methods
     @Override
     public String toString(){
-<span class="nc bnc" id="L20" title="All 2 branches missed.">        if(this.getHasFlag()){</span>
-<span class="nc" id="L21">            return &quot;|  f  |&quot;;</span>
+<span class="fc bfc" id="L20" title="All 2 branches covered.">        if(this.getHasFlag()){</span>
+<span class="fc" id="L21">            return &quot;|  f  |&quot;;</span>
         }
-<span class="nc bnc" id="L23" title="All 2 branches missed.">        else if(this.getCleared()){</span>
-<span class="nc" id="L24">            return &quot;|  &quot; + bombsNearby + &quot;  |&quot;;</span>
+<span class="fc bfc" id="L23" title="All 2 branches covered.">        else if(this.getCleared()){</span>
+<span class="fc" id="L24">            return &quot;|  &quot; + bombsNearby + &quot;  |&quot;;</span>
         }
         /*
         else if(this.getHasBomb()){
@@ -30,7 +30,7 @@ public class Tile {
         */
 
         else {
-<span class="nc" id="L33">            return &quot;|  ?  |&quot;;</span>
+<span class="fc" id="L33">            return &quot;|  ?  |&quot;;</span>
         }
     }
 
@@ -42,7 +42,7 @@ public class Tile {
 <span class="nc" id="L42">    }</span>
 
     public boolean getHasFlag(){
-<span class="nc" id="L45">        return hasFlag;</span>
+<span class="fc" id="L45">        return hasFlag;</span>
     }
     public void setHasFlag(boolean value){
 <span class="fc" id="L48">        hasFlag = value;</span>
