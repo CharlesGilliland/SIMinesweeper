@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 public class GridTest {
     @Test
-    public void populateGridTest(){
+    public void testPopulateGrid(){
         Grid testGrid = new Grid(5, 5);
         Tile[][] exampleGrid = new Tile[5][5];
         // Creating Tiles in example grid
@@ -29,14 +29,14 @@ public class GridTest {
     }
 
     @Test
-    public void setDifficultyTest(){
+    public void testSetDifficulty(){
         Grid testGrid = new Grid(10,10);
         int result = testGrid.setDifficulty(5);
         Assertions.assertEquals(40, result, "The number of bombs set by the difficulty is wrong");
     }
 
     @Test
-    public void showAdjacentClearedTest(){
+    public void testShowAdjacentCleared(){
         Grid testGrid = new Grid(3, 3);
         // A new grid is created without any bombs
         testGrid.showAdjacentCleared(1, 1);
