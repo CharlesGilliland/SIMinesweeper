@@ -8,14 +8,14 @@ public class TileTest {
 
 
     @Test
-    void testToStringFlagged(){
+    public void testToStringFlagged(){
         Tile testTile = new Tile();
         testTile.setHasFlag(true);
         Assertions.assertEquals("|  f  |", testTile.toString());
     }
 
     @Test
-    void testToStringCleared(){
+    public void testToStringCleared(){
         Tile testTile = new Tile();
         testTile.setBombsNearby(1);
         testTile.setCleared(true);
@@ -23,7 +23,7 @@ public class TileTest {
     }
 
     @Test
-    void testToStringUnknown(){
+    public void testToStringUnknown(){
         Tile testTile = new Tile();
         Assertions.assertEquals("|  ?  |", testTile.toString());
     }
