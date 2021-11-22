@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 public class GridTest {
     @Test
-    public void testPopulateGrid(){
+    void testPopulateGrid(){
         Grid testGrid = new Grid(5, 5);
         Tile[][] exampleGrid = new Tile[5][5];
         // Creating Tiles in example grid
@@ -29,14 +29,14 @@ public class GridTest {
     }
 
     @Test
-    public void testSetDifficulty(){
+    void testSetDifficulty(){
         Grid testGrid = new Grid(10,10);
         int result = testGrid.setDifficulty(5);
         Assertions.assertEquals(40, result, "The number of bombs set by the difficulty is wrong");
     }
 
     @Test
-    public void testShowAdjacentCleared(){
+    void testShowAdjacentCleared(){
         Grid testGrid = new Grid(3, 3);
         // A new grid is created without any bombs
         testGrid.showAdjacentCleared(1, 1);
@@ -52,7 +52,7 @@ public class GridTest {
     }
 
     @Test
-    public void testShowsBombsNearby(){
+    void testShowsBombsNearby(){
         Grid testGrid = new Grid(3,3);
         testGrid.getWholeGrid()[0][0].setHasBomb(true);
         testGrid.getWholeGrid()[0][1].setHasBomb(true);
@@ -60,7 +60,7 @@ public class GridTest {
     }
 
     @Test
-    public void testCheckBoardCleared(){
+    void testCheckBoardCleared(){
         Grid testGrid = new Grid(2,2);
         // CheckBoardCleared should return false
         Assertions.assertFalse(testGrid.checkBoardCleared());
@@ -79,7 +79,7 @@ public class GridTest {
     }
 
     @Test
-    public void testCheckFlaggedCorrect(){
+    void testCheckFlaggedCorrect(){
         Grid testGrid = new Grid(3,3);
 
         // If no bombs are present this should be true
@@ -104,7 +104,7 @@ public class GridTest {
     }
 
     @Test
-    public void testToString(){
+    void testToString(){
         Grid testGrid = new Grid(2,2);
         String result = "|  ?  ||  ?  |\n|  ?  ||  ?  |\n";
         Assertions.assertEquals(testGrid.toString(), result, "The grid is not displaying properly with toString");
@@ -116,7 +116,7 @@ public class GridTest {
     }
 
     @Test
-    public void testAssignBombs(){
+    void testAssignBombs(){
         Grid testGrid = new Grid(5,5);
         testGrid.setDifficulty(1);
         int bombsBeforeAssignment = testGrid.getTotalBombs();
