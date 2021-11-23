@@ -95,8 +95,11 @@ public class PlayerTest {
     @Test
     public void testEquals(){
         Player p1 = new Player("Charlie", 5);
-        Player p2 = new Player("Charlie", 5);
+        // Equals should return true is compared to itself
+        Assertions.assertEquals(true, p1.equals(p1));
+
         // Equals should return true if the player objects have the same name, flagsRemaining and score
+        Player p2 = new Player("Charlie", 5);
         Assertions.assertEquals(true, p1.equals(p2));
 
         // Equals should return false if any of these values are different

@@ -35,23 +35,23 @@ public class Grid {
 
     public void setDifficulty(int d){
 <span class="fc" id="L37">        this.difficulty = d;</span>
-<span class="pc bpc" id="L38" title="3 of 5 branches missed.">        switch(d){</span>
+<span class="fc bfc" id="L38" title="All 5 branches covered.">        switch(d){</span>
             case 5:
 <span class="fc" id="L40">                int veryHard = ((int)(totalTiles/2.5));</span>
 <span class="pc bpc" id="L41" title="1 of 2 branches missed.">                this.totalBombs = veryHard == 0 ? 1 : veryHard;</span>
 <span class="fc" id="L42">                break;</span>
             case 4:
-<span class="nc" id="L44">                int hard = ((int)(totalTiles/3.125));</span>
-<span class="nc bnc" id="L45" title="All 2 branches missed.">                this.totalBombs = hard == 0 ? 1 : hard;</span>
-<span class="nc" id="L46">                break;</span>
+<span class="fc" id="L44">                int hard = ((int)(totalTiles/3.125));</span>
+<span class="pc bpc" id="L45" title="1 of 2 branches missed.">                this.totalBombs = hard == 0 ? 1 : hard;</span>
+<span class="fc" id="L46">                break;</span>
             case 3:
-<span class="nc" id="L48">                int normal = ((int)(totalTiles/4.16));</span>
-<span class="nc bnc" id="L49" title="All 2 branches missed.">                this.totalBombs =  normal == 0 ? 1 : normal;</span>
-<span class="nc" id="L50">                break;</span>
+<span class="fc" id="L48">                int normal = ((int)(totalTiles/4.16));</span>
+<span class="pc bpc" id="L49" title="1 of 2 branches missed.">                this.totalBombs =  normal == 0 ? 1 : normal;</span>
+<span class="fc" id="L50">                break;</span>
             case 2:
-<span class="nc" id="L52">                int easy = ((int)(totalTiles/6.25));</span>
-<span class="nc bnc" id="L53" title="All 2 branches missed.">                this.totalBombs =  easy == 0 ? 1 : easy;</span>
-<span class="nc" id="L54">                break;</span>
+<span class="fc" id="L52">                int easy = ((int)(totalTiles/6.25));</span>
+<span class="pc bpc" id="L53" title="1 of 2 branches missed.">                this.totalBombs =  easy == 0 ? 1 : easy;</span>
+<span class="fc" id="L54">                break;</span>
             default:
 <span class="fc" id="L56">                int veryEasy = ((int)(totalTiles/12.5));</span>
 <span class="fc bfc" id="L57" title="All 2 branches covered.">                this.totalBombs =  veryEasy == 0 ? 1 : veryEasy;</span>
@@ -67,7 +67,7 @@ public class Grid {
     public void showAdjacentCleared(int r, int c){
 <span class="fc bfc" id="L68" title="All 2 branches covered.">        for(int i = r-1; i &lt;= r+1; i++){</span>
 <span class="fc bfc" id="L69" title="All 2 branches covered.">            for(int j = c-1; j &lt;= c+1; j ++){</span>
-<span class="pc bpc" id="L70" title="4 of 8 branches missed.">                if(i &lt; 0 || j &lt; 0 || i &gt;= height || j &gt;= width){</span>
+<span class="pc bpc" id="L70" title="2 of 8 branches missed.">                if(i &lt; 0 || j &lt; 0 || i &gt;= height || j &gt;= width){</span>
 <span class="nc" id="L71">                    continue;</span>
                 }
 <span class="fc" id="L73">                Tile selectedTile = wholeGrid[i][j];</span>
@@ -145,7 +145,7 @@ public class Grid {
 <span class="fc" id="L145">            int randomHeight = randomGen.nextInt(height);</span>
 <span class="fc" id="L146">            int randomWidth = randomGen.nextInt(width);</span>
 <span class="fc" id="L147">            Tile selectedTile = this.wholeGrid[randomHeight][randomWidth];</span>
-<span class="pc bpc" id="L148" title="1 of 2 branches missed.">            if(!selectedTile.getHasBomb()){</span>
+<span class="fc bfc" id="L148" title="All 2 branches covered.">            if(!selectedTile.getHasBomb()){</span>
 <span class="fc" id="L149">                selectedTile.setHasBomb(true);</span>
 <span class="fc" id="L150">                bombsRemaining--;</span>
             }

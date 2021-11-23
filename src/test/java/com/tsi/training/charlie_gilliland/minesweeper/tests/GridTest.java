@@ -32,7 +32,48 @@ public class GridTest {
     public void testSetDifficulty(){
         Grid testGrid = new Grid(10,10);
         testGrid.setDifficulty(5);
+        // Total bombs should be 40
         Assertions.assertEquals(40, testGrid.getTotalBombs(), "The number of bombs set by the difficulty is wrong");
+
+        testGrid.setDifficulty(4);
+        // Total bombs should be 32
+        Assertions.assertEquals(32, testGrid.getTotalBombs(), "The number of bombs set by the difficulty is wrong");
+
+        testGrid.setDifficulty(3);
+        // Total bombs should be 24
+        Assertions.assertEquals(24, testGrid.getTotalBombs(), "The number of bombs set by the difficulty is wrong");
+
+        testGrid.setDifficulty(2);
+        // Total bombs should be 16
+        Assertions.assertEquals(16, testGrid.getTotalBombs(), "The number of bombs set by the difficulty is wrong");
+
+        testGrid.setDifficulty(1);
+        // Total bombs should be 8
+        Assertions.assertEquals(8, testGrid.getTotalBombs(), "The number of bombs set by the difficulty is wrong");
+
+        // Any int above or below 2-5 should return the lowest difficulty 8 bombs in this case
+        testGrid.setDifficulty(6);
+        Assertions.assertEquals(8, testGrid.getTotalBombs(), "The number of bombs set by the difficulty is wrong");
+
+        // On grids where the bomb total is calculated to be >1 a total number of bombs of 1 is set
+        Grid smallTestGrid = new Grid(2,2);
+        smallTestGrid.setDifficulty(5);
+        Assertions.assertEquals(1, smallTestGrid.getTotalBombs(), "The number of bombs set by the difficulty is wrong");
+
+        testGrid.setDifficulty(4);
+        Assertions.assertEquals(1, smallTestGrid.getTotalBombs(), "The number of bombs set by the difficulty is wrong");
+
+        testGrid.setDifficulty(3);
+        Assertions.assertEquals(1, smallTestGrid.getTotalBombs(), "The number of bombs set by the difficulty is wrong");
+
+        testGrid.setDifficulty(2);
+        Assertions.assertEquals(1, smallTestGrid.getTotalBombs(), "The number of bombs set by the difficulty is wrong");
+
+        testGrid.setDifficulty(1);
+        Assertions.assertEquals(1, smallTestGrid.getTotalBombs(), "The number of bombs set by the difficulty is wrong");
+
+        testGrid.setDifficulty(0);
+        Assertions.assertEquals(1, smallTestGrid.getTotalBombs(), "The number of bombs set by the difficulty is wrong");
     }
 
     @Test
@@ -68,6 +109,18 @@ public class GridTest {
             }
         }
         Assertions.assertTrue(clearedCheck, "The tiles surrounding were not cleared");
+
+        testGrid.showAdjacentCleared(0, 0);
+        boolean clearedZeroCheck = true;
+        for(int i = 0; i < 3 ; i++){
+            for(int j = 0; j < 3; j++){
+                if(!testGrid.getWholeGrid()[i][j].getCleared()){
+                    clearedZeroCheck = false;
+                }
+            }
+        }
+        Assertions.assertTrue(clearedZeroCheck, "The tiles surrounding were not cleared when 0 was passed");
+
     }
 
     @Test
