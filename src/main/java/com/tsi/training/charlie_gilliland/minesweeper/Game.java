@@ -13,15 +13,29 @@ public class Game {
     }
 
     // Methods
-    public void createGame(){
+    public int createGame(){
+        // Checking for no game options
+        if(this.options == null){
+            return -1;
+        }
+
         // Creating the board
         this.grid = new Grid(options.row, options.column);
         this.grid.setDifficulty(options.difficulty);
-        this.grid.setTotalBombs();
         this.grid.assignBombs();
 
         // Creating the player
-        this.player = new Player(options.name, this.grid.getTotalBombs() + 4);
+        this.player = new Player(options.name, (this.grid.getTotalBombs() + 4));
+
+        return 1;
+    }
+
+    public Grid getGrid(){
+        return this.grid;
+    }
+
+    public Player getPlayer(){
+        return this.player;
     }
 
     public int playTurn(TurnChoices choices){
@@ -33,6 +47,7 @@ public class Game {
         if(choices.flagNotSelect){
             if(player.getFlagsRemaining() > 0){
                 player.setFlag(selectedTile);
+
                 return 1;
             } else {
                 return 0;

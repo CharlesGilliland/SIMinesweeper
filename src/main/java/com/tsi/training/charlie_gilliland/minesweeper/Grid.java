@@ -33,19 +33,24 @@ public class Grid {
         return wholeGrid;
     }
 
-    public int setDifficulty(int d){
+    public void setDifficulty(int d){
         this.difficulty = d;
         switch(d){
             case 5:
-                return ((int)(totalTiles/2.5));
+                this.totalBombs = ((int)(totalTiles/2.5));
+                break;
             case 4:
-                return ((int)(totalTiles/3.125));
+                this.totalBombs = ((int)(totalTiles/3.125));
+                break;
             case 3:
-                return ((int)(totalTiles/4.16));
+                this.totalBombs =  ((int)(totalTiles/4.16));
+                break;
             case 2:
-                return ((int)(totalTiles/6.25));
+                this.totalBombs =  ((int)(totalTiles/6.25));
+                break;
             default:
-                return ((int)(totalTiles/12.5));
+                this.totalBombs =  ((int)(totalTiles/12.5));
+                break;
         }
     }
 
@@ -53,9 +58,7 @@ public class Grid {
         return totalBombs;
     }
 
-    public void setTotalBombs(){
-        this.totalBombs = this.setDifficulty(difficulty);
-    }
+
 
     public void showAdjacentCleared(int r, int c){
         for(int i = r-1; i <= r+1; i++){
@@ -137,13 +140,14 @@ public class Grid {
     }
 
     public void assignBombs(){
-        while(this.totalBombs > 0){
+        int bombsRemaining = totalBombs;
+        while(bombsRemaining > 0){
             int randomHeight = randomGen.nextInt(height);
             int randomWidth = randomGen.nextInt(width);
             Tile selectedTile = this.wholeGrid[randomHeight][randomWidth];
             if(!selectedTile.getHasBomb()){
                 selectedTile.setHasBomb(true);
-                this.totalBombs--;
+                bombsRemaining--;
             }
         }
     }

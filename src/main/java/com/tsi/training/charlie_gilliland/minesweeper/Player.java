@@ -28,12 +28,20 @@ public class Player {
         if(tile.getCleared()){
             return;
         }
-        tile.setHasFlag(!tile.getHasFlag());
+        if(tile.getHasFlag()){
+            tile.setHasFlag(false);
+            this.flagsRemaining++;
+        } else {
+            tile.setHasFlag(true);
+            this.flagsRemaining--;
+        }
+
     }
 
     public int getFlagsRemaining(){
         return this.flagsRemaining;
     }
+
 
     public int getScore(){
         return this.score;
@@ -53,6 +61,18 @@ public class Player {
 
     public String getName(){
         return this.name;
+    }
+
+    @Override
+    public boolean equals(Object obj){
+        if(this == obj){
+            return true;
+        }
+        if(obj == null || this.getClass() != obj.getClass()){
+            return false;
+        }
+        Player player = (Player)obj;
+        return this.name == player.name && this.flagsRemaining == player.flagsRemaining && this.score == player.score;
     }
 
 }

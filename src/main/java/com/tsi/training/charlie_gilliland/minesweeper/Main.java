@@ -28,7 +28,11 @@ public class Main {
 
         // Creating game
         Game game = new Game(options);
-        game.createGame();
+
+        int gameOptionsCheck = game.createGame();
+        if(gameOptionsCheck == -1){
+            return;
+        }
 
         // Setting condition to keep playing the game
         boolean gameOver = false;

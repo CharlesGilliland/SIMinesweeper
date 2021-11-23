@@ -1,8 +1,8 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-Minesweeper,com.tsi.training.charlie_gilliland.minesweeper,Grid,67,316,15,50,14,57,13,33,0,12
-Minesweeper,com.tsi.training.charlie_gilliland.minesweeper,Main,156,0,10,0,44,0,8,0,3,0
-Minesweeper,com.tsi.training.charlie_gilliland.minesweeper,Player,1,66,1,5,0,23,1,11,0,9
-Minesweeper,com.tsi.training.charlie_gilliland.minesweeper,GameOptions,15,0,0,0,6,0,1,0,1,0
+Minesweeper,com.tsi.training.charlie_gilliland.minesweeper,Grid,41,342,13,52,10,65,12,33,0,11
+Minesweeper,com.tsi.training.charlie_gilliland.minesweeper,Main,161,0,12,0,46,0,9,0,3,0
+Minesweeper,com.tsi.training.charlie_gilliland.minesweeper,Player,5,112,6,12,2,31,6,13,0,10
+Minesweeper,com.tsi.training.charlie_gilliland.minesweeper,GameOptions,0,15,0,0,0,6,0,1,0,1
 Minesweeper,com.tsi.training.charlie_gilliland.minesweeper,Tile,5,51,1,5,2,21,2,11,1,9
-Minesweeper,com.tsi.training.charlie_gilliland.minesweeper,Game,124,0,16,0,30,0,13,0,5,0
-Minesweeper,com.tsi.training.charlie_gilliland.minesweeper,TurnChoices,12,0,0,0,5,0,1,0,1,0
+Minesweeper,com.tsi.training.charlie_gilliland.minesweeper,Game,51,81,12,6,15,18,10,6,2,5
+Minesweeper,com.tsi.training.charlie_gilliland.minesweeper,TurnChoices,0,12,0,0,0,5,0,1,0,1

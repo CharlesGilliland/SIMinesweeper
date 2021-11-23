@@ -31,15 +31,22 @@ public class GridTest {
     @Test
     public void testSetDifficulty(){
         Grid testGrid = new Grid(10,10);
-        int result = testGrid.setDifficulty(5);
-        Assertions.assertEquals(40, result, "The number of bombs set by the difficulty is wrong");
+        testGrid.setDifficulty(5);
+        Assertions.assertEquals(40, testGrid.getTotalBombs(), "The number of bombs set by the difficulty is wrong");
+    }
+
+    @Test
+    public void testGetTotalBombs(){
+        Grid testGrid = new Grid(10,10);
+        testGrid.setDifficulty(1);
+        testGrid.assignBombs();
+        System.out.println(testGrid.getTotalBombs());
     }
 
     @Test
     public void testGetAndSetTotalBombs(){
         Grid testGrid = new Grid(10,10);
         testGrid.setDifficulty(5);
-        testGrid.setTotalBombs();
         int result = testGrid.getTotalBombs();
 
         // Set difficulty should set the total number of bombs
@@ -144,7 +151,7 @@ public class GridTest {
     public void testAssignBombs(){
         Grid testGrid = new Grid(5,5);
         testGrid.setDifficulty(1);
-        int bombsBeforeAssignment = testGrid.getTotalBombs();
+        int totalBombs = testGrid.getTotalBombs();
         testGrid.assignBombs();
         int noOfBombs = 0;
         for(int i = 0; i < 5; i++){
@@ -154,7 +161,6 @@ public class GridTest {
                 }
             }
         }
-        Assertions.assertEquals(0, testGrid.getTotalBombs(), "Not all the bombs were assigned");
-        Assertions.assertEquals(bombsBeforeAssignment, noOfBombs);
+        Assertions.assertEquals(totalBombs, noOfBombs, "Total number of bombs assigned is equal to the total number added");
     }
 }

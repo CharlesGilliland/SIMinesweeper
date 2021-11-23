@@ -28,31 +28,51 @@ public class Player {
 <span class="fc bfc" id="L28" title="All 2 branches covered.">        if(tile.getCleared()){</span>
 <span class="fc" id="L29">            return;</span>
         }
-<span class="pc bpc" id="L31" title="1 of 2 branches missed.">        tile.setHasFlag(!tile.getHasFlag());</span>
-<span class="fc" id="L32">    }</span>
+<span class="fc bfc" id="L31" title="All 2 branches covered.">        if(tile.getHasFlag()){</span>
+<span class="fc" id="L32">            tile.setHasFlag(false);</span>
+<span class="fc" id="L33">            this.flagsRemaining++;</span>
+        } else {
+<span class="fc" id="L35">            tile.setHasFlag(true);</span>
+<span class="fc" id="L36">            this.flagsRemaining--;</span>
+        }
+
+<span class="fc" id="L39">    }</span>
 
     public int getFlagsRemaining(){
-<span class="fc" id="L35">        return this.flagsRemaining;</span>
+<span class="fc" id="L42">        return this.flagsRemaining;</span>
     }
 
+
     public int getScore(){
-<span class="fc" id="L39">        return this.score;</span>
+<span class="fc" id="L47">        return this.score;</span>
     }
 
     public void increaseScore(){
-<span class="fc" id="L43">        this.score++;</span>
-<span class="fc" id="L44">    }</span>
+<span class="fc" id="L51">        this.score++;</span>
+<span class="fc" id="L52">    }</span>
 
     public boolean getHasWon(){
-<span class="fc" id="L47">        return hasWon;</span>
+<span class="fc" id="L55">        return hasWon;</span>
     }
 
     public void setHasWon(boolean value){
-<span class="fc" id="L51">        hasWon = value;</span>
-<span class="fc" id="L52">    }</span>
+<span class="fc" id="L59">        hasWon = value;</span>
+<span class="fc" id="L60">    }</span>
 
     public String getName(){
-<span class="fc" id="L55">        return this.name;</span>
+<span class="fc" id="L63">        return this.name;</span>
+    }
+
+    @Override
+    public boolean equals(Object obj){
+<span class="pc bpc" id="L68" title="1 of 2 branches missed.">        if(this == obj){</span>
+<span class="nc" id="L69">            return true;</span>
+        }
+<span class="pc bpc" id="L71" title="2 of 4 branches missed.">        if(obj == null || this.getClass() != obj.getClass()){</span>
+<span class="nc" id="L72">            return false;</span>
+        }
+<span class="fc" id="L74">        Player player = (Player)obj;</span>
+<span class="pc bpc" id="L75" title="3 of 6 branches missed.">        return this.name == player.name &amp;&amp; this.flagsRemaining == player.flagsRemaining &amp;&amp; this.score == player.score;</span>
     }
 
 }

@@ -30,8 +30,13 @@ public class PlayerTest {
 
         // SetFlag should get HasFlag to be true on the Tile object
         Assertions.assertTrue(testTile.getHasFlag());
+        // Player should have one less flag than they started with
+        Assertions.assertEquals(4, testPlayer.getFlagsRemaining(), "Player has a different amount of flag as they should ");
 
-        testTile.setHasFlag(false);
+        testPlayer.setFlag(testTile);
+        // Player should receive a flag when they take one off of the board
+        Assertions.assertEquals(5, testPlayer.getFlagsRemaining(), "Player has a different amount of flag as they should ");
+
         testTile.setCleared(true);
 
         testPlayer.setFlag(testTile);
