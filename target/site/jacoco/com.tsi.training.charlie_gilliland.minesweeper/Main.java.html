@@ -80,24 +80,21 @@ import java.util.logging.Logger;
 <span class="nc" id="L80">                gameOver = true;</span>
 <span class="nc bnc" id="L81" title="All 2 branches missed.">                if(grid.checkFlaggedCorrect()){</span>
 <span class="nc" id="L82">                    player.setHasWon(true);</span>
-                } else {
-<span class="nc" id="L84">                    player.setHasWon(false);</span>
                 }
-
             }
-<span class="nc bnc" id="L88" title="All 2 branches missed.">        } while(!gameOver);</span>
-<span class="nc bnc" id="L89" title="All 2 branches missed.">        if(player.getHasWon()){</span>
-<span class="nc" id="L90">            logger.info(&quot;Congratulations  &quot; + player.getName() + &quot;!&quot;);</span>
-<span class="nc" id="L91">            logger.info(&quot;You finished with a score of &quot; + player.getScore());</span>
+<span class="nc bnc" id="L85" title="All 2 branches missed.">        } while(!gameOver);</span>
+<span class="nc bnc" id="L86" title="All 2 branches missed.">        if(player.getHasWon()){</span>
+<span class="nc" id="L87">            logger.info(&quot;Congratulations  &quot; + player.getName() + &quot;!&quot;);</span>
+<span class="nc" id="L88">            logger.info(&quot;You finished with a score of &quot; + player.getScore());</span>
         } else {
-<span class="nc" id="L93">            logger.info(&quot;You've lost the game, with a final score of &quot; + player.getScore());</span>
-<span class="nc" id="L94">            logger.info(&quot;Better luck next time!&quot;);</span>
+<span class="nc" id="L90">            logger.info(&quot;You've lost the game, with a final score of &quot; + player.getScore());</span>
+<span class="nc" id="L91">            logger.info(&quot;Better luck next time!&quot;);</span>
         }
 
 
 
 
-<span class="nc" id="L100">    }</span>
+<span class="nc" id="L97">    }</span>
 }
 
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

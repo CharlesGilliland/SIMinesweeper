@@ -1,5 +1,5 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
 Minesweeper,com.tsi.training.charlie_gilliland.minesweeper,Grid,74,308,15,50,16,55,14,32,1,11
-Minesweeper,com.tsi.training.charlie_gilliland.minesweeper,Main,207,0,20,0,59,0,13,0,3,0
+Minesweeper,com.tsi.training.charlie_gilliland.minesweeper,Main,203,0,20,0,58,0,13,0,3,0
 Minesweeper,com.tsi.training.charlie_gilliland.minesweeper,Player,67,0,6,0,23,0,12,0,9,0
 Minesweeper,com.tsi.training.charlie_gilliland.minesweeper,Tile,5,51,1,5,2,21,2,11,1,9

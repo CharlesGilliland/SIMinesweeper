@@ -80,10 +80,7 @@ public class Main {
                 gameOver = true;
                 if(grid.checkFlaggedCorrect()){
                     player.setHasWon(true);
-                } else {
-                    player.setHasWon(false);
                 }
-
             }
         } while(!gameOver);
         if(player.getHasWon()){
