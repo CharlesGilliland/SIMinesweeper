@@ -23,12 +23,6 @@ public class Tile {
         else if(this.getCleared()){
             return "|  " + bombsNearby + "  |";
         }
-        /*
-        else if(this.getHasBomb()){
-            return "|  X  |";
-        }
-         */
-
 
         else {
             return "|  ?  |";

@@ -39,7 +39,10 @@ public class Main {
 
         // Main game loop
         do{
-            logger.info(String.valueOf(game.grid));
+            // Showing the grid
+            String gridView = game.grid.toString();
+            logger.info(gridView);
+
             // Getting choices for tile
             logger.info("Enter the row of the tile you want to select");
             int rowChoice = Integer.parseInt(input.next());

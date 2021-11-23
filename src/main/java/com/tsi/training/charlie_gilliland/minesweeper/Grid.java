@@ -111,9 +111,8 @@ public class Grid {
 
         for(int i = 0; i < this.height; i++){
             for(int j = 0; j < this.width; j++){
-                if(wholeGrid[i][j].getHasBomb() && !(wholeGrid[i][j].getHasFlag())){
-                    flagsCorrect = false;
-                } else if(!wholeGrid[i][j].getHasBomb() && (wholeGrid[i][j].getHasFlag())){
+                if(wholeGrid[i][j].getHasBomb() && !(wholeGrid[i][j].getHasFlag()) ||
+                        !wholeGrid[i][j].getHasBomb() && (wholeGrid[i][j].getHasFlag())){
                     flagsCorrect = false;
                 }
             }
