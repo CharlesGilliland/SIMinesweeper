@@ -5,43 +5,43 @@ public class Player {
     private String name;
     private int flagsRemaining;
     private int score;
-<span class="nc" id="L8">    private boolean hasWon = false;</span>
+<span class="fc" id="L8">    private boolean hasWon = false;</span>
 
     // Constructor
-<span class="nc" id="L11">    public Player(String name, int flags){</span>
-<span class="nc" id="L12">        this.name = name;</span>
-<span class="nc" id="L13">        this.flagsRemaining = flags;</span>
-<span class="nc" id="L14">        this.score = 0;</span>
-<span class="nc" id="L15">    }</span>
+<span class="fc" id="L11">    public Player(String name, int flags){</span>
+<span class="fc" id="L12">        this.name = name;</span>
+<span class="fc" id="L13">        this.flagsRemaining = flags;</span>
+<span class="fc" id="L14">        this.score = 0;</span>
+<span class="fc" id="L15">    }</span>
 
     // Methods
     public boolean selectTile(Tile tile){
-<span class="nc bnc" id="L19" title="All 2 branches missed.">        if(tile.getHasBomb()){</span>
-<span class="nc" id="L20">            return false;</span>
+<span class="fc bfc" id="L19" title="All 2 branches covered.">        if(tile.getHasBomb()){</span>
+<span class="fc" id="L20">            return false;</span>
         }
-<span class="nc" id="L22">        tile.setCleared(true);</span>
-<span class="nc" id="L23">        this.score++;</span>
-<span class="nc" id="L24">        return true;</span>
+<span class="fc" id="L22">        tile.setCleared(true);</span>
+<span class="fc" id="L23">        this.score++;</span>
+<span class="fc" id="L24">        return true;</span>
     }
 
     public void setFlag(Tile tile){
-<span class="nc bnc" id="L28" title="All 2 branches missed.">        if(tile.getCleared()){</span>
-<span class="nc" id="L29">            return;</span>
+<span class="fc bfc" id="L28" title="All 2 branches covered.">        if(tile.getCleared()){</span>
+<span class="fc" id="L29">            return;</span>
         }
-<span class="nc bnc" id="L31" title="All 2 branches missed.">        tile.setHasFlag(!tile.getHasFlag());</span>
-<span class="nc" id="L32">    }</span>
+<span class="pc bpc" id="L31" title="1 of 2 branches missed.">        tile.setHasFlag(!tile.getHasFlag());</span>
+<span class="fc" id="L32">    }</span>
 
     public int getFlagsRemaining(){
 <span class="nc" id="L35">        return this.flagsRemaining;</span>
     }
 
     public int getScore(){
-<span class="nc" id="L39">        return this.score;</span>
+<span class="fc" id="L39">        return this.score;</span>
     }
 
     public void increaseScore(){
-<span class="nc" id="L43">        this.score++;</span>
-<span class="nc" id="L44">    }</span>
+<span class="fc" id="L43">        this.score++;</span>
+<span class="fc" id="L44">    }</span>
 
     public boolean getHasWon(){
 <span class="nc" id="L47">        return hasWon;</span>
