@@ -19,7 +19,7 @@ public class PlayerTest {
         Assertions.assertTrue(testPlayer.selectTile(testTile));
 
         // The players score should also be incremented by 1
-        Assertions.assertTrue(testPlayer.getScore() == 1);
+        Assertions.assertEquals(1, testPlayer.getScore());
     }
 
     @Test
@@ -44,6 +44,6 @@ public class PlayerTest {
     public void testIncreaseScore(){
         Player testPlayer = new Player("Charlie", 5);
         testPlayer.increaseScore();
-        Assertions.assertEquals(testPlayer.getScore(), 1);
+        Assertions.assertEquals(1, testPlayer.getScore());
     }
 }

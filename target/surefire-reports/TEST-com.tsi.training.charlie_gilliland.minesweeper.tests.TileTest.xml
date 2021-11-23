@@ -59,7 +59,7 @@
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="com.tsi.training.charlie_gilliland.minesweeper.tests.TileTest" name="com.tsi.training.charlie_gilliland.minesweeper.tests.TileTest.testToStringFlagged" time="0"/>
   <testcase classname="com.tsi.training.charlie_gilliland.minesweeper.tests.TileTest" name="com.tsi.training.charlie_gilliland.minesweeper.tests.TileTest.testToStringCleared" time="0"/>
+  <testcase classname="com.tsi.training.charlie_gilliland.minesweeper.tests.TileTest" name="com.tsi.training.charlie_gilliland.minesweeper.tests.TileTest.testToStringFlagged" time="0"/>
   <testcase classname="com.tsi.training.charlie_gilliland.minesweeper.tests.TileTest" name="com.tsi.training.charlie_gilliland.minesweeper.tests.TileTest.testToStringUnknown" time="0"/>
 </testsuite>
