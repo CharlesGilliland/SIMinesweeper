@@ -60,19 +60,19 @@ public class GridTest {
         smallTestGrid.setDifficulty(5);
         Assertions.assertEquals(1, smallTestGrid.getTotalBombs(), "The number of bombs set by the difficulty is wrong");
 
-        testGrid.setDifficulty(4);
+        smallTestGrid.setDifficulty(4);
         Assertions.assertEquals(1, smallTestGrid.getTotalBombs(), "The number of bombs set by the difficulty is wrong");
 
-        testGrid.setDifficulty(3);
+        smallTestGrid.setDifficulty(3);
         Assertions.assertEquals(1, smallTestGrid.getTotalBombs(), "The number of bombs set by the difficulty is wrong");
 
-        testGrid.setDifficulty(2);
+        smallTestGrid.setDifficulty(2);
         Assertions.assertEquals(1, smallTestGrid.getTotalBombs(), "The number of bombs set by the difficulty is wrong");
 
-        testGrid.setDifficulty(1);
+        smallTestGrid.setDifficulty(1);
         Assertions.assertEquals(1, smallTestGrid.getTotalBombs(), "The number of bombs set by the difficulty is wrong");
 
-        testGrid.setDifficulty(0);
+        smallTestGrid.setDifficulty(0);
         Assertions.assertEquals(1, smallTestGrid.getTotalBombs(), "The number of bombs set by the difficulty is wrong");
     }
 
@@ -93,7 +93,6 @@ public class GridTest {
         // Set difficulty should set the total number of bombs
         Assertions.assertEquals(40, result, "The number of bombs set by the difficulty is wrong");
     }
-
 
     @Test
     public void testShowAdjacentCleared(){

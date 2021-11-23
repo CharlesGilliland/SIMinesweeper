@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Main.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Minesweeper</a> &gt; <a href="index.source.html" class="el_package">com.tsi.training.charlie_gilliland.minesweeper</a> &gt; <span class="el_source">Main.java</span></div><h1>Main.java</h1><pre class="source lang-java linenums">package com.tsi.training.charlie_gilliland.minesweeper;
+
+import java.util.Scanner;
+import java.util.logging.Logger;
+
+<span class="nc" id="L6">public class Main {</span>
+<span class="nc" id="L7">    private static final Logger logger = Logger.getLogger(Main.class.getName());</span>
+<span class="nc" id="L8">    private static Scanner input = new Scanner(System.in);</span>
+
+    public static void main(String[] args) {
+        // Getting player name
+<span class="nc" id="L12">        logger.info(&quot;Enter your player name:&quot;);</span>
+<span class="nc" id="L13">        String name = input.next();</span>
+
+        // Getting board size
+<span class="nc" id="L16">        logger.info(&quot;Enter rows and columns for the board:&quot;);</span>
+<span class="nc" id="L17">        logger.info(&quot;Rows: &quot;);</span>
+<span class="nc" id="L18">        int rows = Integer.parseInt(input.next());</span>
+<span class="nc" id="L19">        logger.info(&quot;Columns: &quot;);</span>
+<span class="nc" id="L20">        int columns = Integer.parseInt(input.next());</span>
+
+        // Getting difficulty
+<span class="nc" id="L23">        logger.info(&quot;Enter difficulty (1 - 5): &quot;);</span>
+<span class="nc" id="L24">        int difficulty = Integer.parseInt(input.next());</span>
+
+        // Creating game options
+<span class="nc" id="L27">        GameOptions options = new GameOptions(name, rows, columns, difficulty);</span>
+
+        // Creating game
+<span class="nc" id="L30">        Game game = new Game(options);</span>
+
+<span class="nc" id="L32">        int gameOptionsCheck = game.createGame();</span>
+<span class="nc bnc" id="L33" title="All 2 branches missed.">        if(gameOptionsCheck == -1){</span>
+<span class="nc" id="L34">            return;</span>
+        }
+
+        // Setting condition to keep playing the game
+<span class="nc" id="L38">        boolean gameOver = false;</span>
+
+        // Main game loop
+        do{
+            // Showing the grid
+<span class="nc" id="L43">            String gridView = game.grid.toString();</span>
+<span class="nc" id="L44">            logger.info(gridView);</span>
+
+            // Getting choices for tile
+<span class="nc" id="L47">            logger.info(&quot;Enter the row of the tile you want to select&quot;);</span>
+<span class="nc" id="L48">            int rowChoice = Integer.parseInt(input.next());</span>
+<span class="nc" id="L49">            logger.info(&quot;Enter the column of the tile you want to select&quot;);</span>
+<span class="nc" id="L50">            int columnChoice = Integer.parseInt(input.next());</span>
+
+            // Setting either flag or select
+<span class="nc" id="L53">            logger.info(&quot;Do you want to flag or select? f / s&quot;);</span>
+<span class="nc" id="L54">            String flagOrSelect = input.next();</span>
+<span class="nc" id="L55">            boolean flagNotSelect = false;</span>
+<span class="nc" id="L56">            boolean inputOk = false;</span>
+            do {
+<span class="nc bnc" id="L58" title="All 2 branches missed.">                if (flagOrSelect.equals(&quot;f&quot;)) {</span>
+<span class="nc" id="L59">                    flagNotSelect = true;</span>
+<span class="nc" id="L60">                    inputOk = true;</span>
+<span class="nc bnc" id="L61" title="All 2 branches missed.">                } else if (flagOrSelect.equals(&quot;s&quot;)) {</span>
+<span class="nc" id="L62">                    inputOk = true;</span>
+                } else {
+<span class="nc" id="L64">                    logger.info(&quot;Enter either f / s&quot;);</span>
+<span class="nc" id="L65">                    flagOrSelect = input.next();</span>
+                }
+<span class="nc bnc" id="L67" title="All 2 branches missed.">            } while(!inputOk);</span>
+
+            // Creating the turn choices
+<span class="nc" id="L70">            TurnChoices choices = new TurnChoices(rowChoice, columnChoice, flagNotSelect);</span>
+
+            // Running the turn with the choices
+<span class="nc" id="L73">            game.playTurn(choices);</span>
+
+<span class="nc" id="L75">            gameOver = game.endOfGameCheck();</span>
+<span class="nc" id="L76">            game.player.setHasWon(game.hasWonCheck());</span>
+<span class="nc bnc" id="L77" title="All 2 branches missed.">        } while(!gameOver);</span>
+
+
+<span class="nc bnc" id="L80" title="All 2 branches missed.">        if(game.player.getHasWon()){</span>
+<span class="nc" id="L81">            logger.info(&quot;You have won the game!\nYour final score was &quot; + game.player.getScore());</span>
+        } else {
+<span class="nc" id="L83">            logger.info(&quot;You have lost the game!\nYour final score was &quot; + game.player.getScore());</span>
+        }
+<span class="nc" id="L85">    }</span>
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
