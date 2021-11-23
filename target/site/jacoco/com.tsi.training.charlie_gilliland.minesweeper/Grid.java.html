@@ -9,134 +9,134 @@ public class Grid {
     int totalTiles;
     int difficulty;
     int totalBombs;
+<span class="fc" id="L12">    Random randomGen = new Random();</span>
 
     Tile[][] wholeGrid;
 
 
     // Constructor
-<span class="fc" id="L17">    public Grid(int h, int w){</span>
-<span class="fc" id="L18">        this.height = h;</span>
-<span class="fc" id="L19">        this.width = w;</span>
-<span class="fc" id="L20">        this.totalTiles = h * w;</span>
-<span class="fc" id="L21">        this.wholeGrid = populateGrid();</span>
-<span class="fc" id="L22">    }</span>
+<span class="fc" id="L18">    public Grid(int h, int w){</span>
+<span class="fc" id="L19">        this.height = h;</span>
+<span class="fc" id="L20">        this.width = w;</span>
+<span class="fc" id="L21">        this.totalTiles = h * w;</span>
+<span class="fc" id="L22">        this.wholeGrid = populateGrid();</span>
+<span class="fc" id="L23">    }</span>
 
     // Methods
     public Tile[][] populateGrid(){
-<span class="fc" id="L26">        wholeGrid = new Tile[this.height][this.width];</span>
-<span class="fc bfc" id="L27" title="All 2 branches covered.">        for(int i = 0; i &lt; height; i++){</span>
-<span class="fc bfc" id="L28" title="All 2 branches covered.">            for(int j = 0; j &lt; width; j++){</span>
-<span class="fc" id="L29">                wholeGrid[i][j] = new Tile();</span>
+<span class="fc" id="L27">        wholeGrid = new Tile[this.height][this.width];</span>
+<span class="fc bfc" id="L28" title="All 2 branches covered.">        for(int i = 0; i &lt; height; i++){</span>
+<span class="fc bfc" id="L29" title="All 2 branches covered.">            for(int j = 0; j &lt; width; j++){</span>
+<span class="fc" id="L30">                wholeGrid[i][j] = new Tile();</span>
             }
         }
-<span class="fc" id="L32">        return wholeGrid;</span>
+<span class="fc" id="L33">        return wholeGrid;</span>
     }
 
     public int setDifficulty(int d){
-<span class="fc" id="L36">        this.difficulty = d;</span>
-<span class="pc bpc" id="L37" title="3 of 5 branches missed.">        switch(d){</span>
+<span class="fc" id="L37">        this.difficulty = d;</span>
+<span class="pc bpc" id="L38" title="3 of 5 branches missed.">        switch(d){</span>
             case 5:
-<span class="fc" id="L39">                return ((int)(totalTiles/2.5));</span>
+<span class="fc" id="L40">                return ((int)(totalTiles/2.5));</span>
             case 4:
-<span class="nc" id="L41">                return ((int)(totalTiles/3.125));</span>
+<span class="nc" id="L42">                return ((int)(totalTiles/3.125));</span>
             case 3:
-<span class="nc" id="L43">                return ((int)(totalTiles/4.16));</span>
+<span class="nc" id="L44">                return ((int)(totalTiles/4.16));</span>
             case 2:
-<span class="nc" id="L45">                return ((int)(totalTiles/6.25));</span>
+<span class="nc" id="L46">                return ((int)(totalTiles/6.25));</span>
             default:
-<span class="fc" id="L47">                return ((int)(totalTiles/12.5));</span>
+<span class="fc" id="L48">                return ((int)(totalTiles/12.5));</span>
         }
     }
 
     public int getTotalBombs(){
-<span class="fc" id="L52">        return totalBombs;</span>
+<span class="fc" id="L53">        return totalBombs;</span>
     }
 
     public void setTotalBombs(){
-<span class="nc" id="L56">        this.totalBombs = this.setDifficulty(difficulty);</span>
-<span class="nc" id="L57">    }</span>
+<span class="nc" id="L57">        this.totalBombs = this.setDifficulty(difficulty);</span>
+<span class="nc" id="L58">    }</span>
 
     public void showAdjacentCleared(int r, int c){
-<span class="fc bfc" id="L60" title="All 2 branches covered.">        for(int i = r-1; i &lt;= r+1; i++){</span>
-<span class="fc bfc" id="L61" title="All 2 branches covered.">            for(int j = c-1; j &lt;= c+1; j ++){</span>
-<span class="pc bpc" id="L62" title="4 of 8 branches missed.">                if(i &lt; 0 || j &lt; 0 || i &gt;= height || j &gt;= width){</span>
-<span class="nc" id="L63">                    continue;</span>
+<span class="fc bfc" id="L61" title="All 2 branches covered.">        for(int i = r-1; i &lt;= r+1; i++){</span>
+<span class="fc bfc" id="L62" title="All 2 branches covered.">            for(int j = c-1; j &lt;= c+1; j ++){</span>
+<span class="pc bpc" id="L63" title="4 of 8 branches missed.">                if(i &lt; 0 || j &lt; 0 || i &gt;= height || j &gt;= width){</span>
+<span class="nc" id="L64">                    continue;</span>
                 }
-<span class="fc" id="L65">                Tile selectedTile = wholeGrid[i][j];</span>
-<span class="fc" id="L66">                selectedTile.setBombsNearby(showBombsNearby(i, j));</span>
-<span class="pc bpc" id="L67" title="1 of 2 branches missed.">                if(!selectedTile.getHasBomb()){</span>
-<span class="fc" id="L68">                    selectedTile.setCleared(true);</span>
+<span class="fc" id="L66">                Tile selectedTile = wholeGrid[i][j];</span>
+<span class="fc" id="L67">                selectedTile.setBombsNearby(showBombsNearby(i, j));</span>
+<span class="pc bpc" id="L68" title="1 of 2 branches missed.">                if(!selectedTile.getHasBomb()){</span>
+<span class="fc" id="L69">                    selectedTile.setCleared(true);</span>
                 }
             }
         }
-<span class="fc" id="L72">    }</span>
+<span class="fc" id="L73">    }</span>
 
     public int showBombsNearby(int r, int c){
-<span class="fc" id="L75">        int totalMines = 0;</span>
-<span class="fc bfc" id="L76" title="All 2 branches covered.">        for(int i = r-1; i &lt;= r+1; i++){</span>
-<span class="fc bfc" id="L77" title="All 2 branches covered.">            for(int j = c-1; j &lt;= c+1; j ++){</span>
-<span class="fc bfc" id="L78" title="All 8 branches covered.">                if(i &lt; 0 || j &lt; 0 || i &gt;= height || j &gt;= width){</span>
-<span class="fc" id="L79">                    continue;</span>
+<span class="fc" id="L76">        int totalMines = 0;</span>
+<span class="fc bfc" id="L77" title="All 2 branches covered.">        for(int i = r-1; i &lt;= r+1; i++){</span>
+<span class="fc bfc" id="L78" title="All 2 branches covered.">            for(int j = c-1; j &lt;= c+1; j ++){</span>
+<span class="fc bfc" id="L79" title="All 8 branches covered.">                if(i &lt; 0 || j &lt; 0 || i &gt;= height || j &gt;= width){</span>
+<span class="fc" id="L80">                    continue;</span>
                 }
-<span class="fc bfc" id="L81" title="All 2 branches covered.">                if(wholeGrid[i][j].getHasBomb()){</span>
-<span class="fc" id="L82">                    totalMines++;</span>
+<span class="fc bfc" id="L82" title="All 2 branches covered.">                if(wholeGrid[i][j].getHasBomb()){</span>
+<span class="fc" id="L83">                    totalMines++;</span>
                 }
             }
         }
-<span class="fc" id="L86">        return totalMines;</span>
+<span class="fc" id="L87">        return totalMines;</span>
     }
 
     public boolean checkBoardCleared(){
-<span class="fc" id="L90">        boolean boardCleared = true;</span>
-<span class="fc bfc" id="L91" title="All 2 branches covered.">        for(int i = 0; i &lt; height; i++){</span>
-<span class="fc bfc" id="L92" title="All 2 branches covered.">            for(int j = 0; j &lt; width; j++){</span>
-<span class="fc bfc" id="L93" title="All 4 branches covered.">                if(!wholeGrid[i][j].getCleared() &amp;&amp; !wholeGrid[i][j].getHasFlag()){</span>
-<span class="fc" id="L94">                    boardCleared = false;</span>
+<span class="fc" id="L91">        boolean boardCleared = true;</span>
+<span class="fc bfc" id="L92" title="All 2 branches covered.">        for(int i = 0; i &lt; height; i++){</span>
+<span class="fc bfc" id="L93" title="All 2 branches covered.">            for(int j = 0; j &lt; width; j++){</span>
+<span class="fc bfc" id="L94" title="All 4 branches covered.">                if(!wholeGrid[i][j].getCleared() &amp;&amp; !wholeGrid[i][j].getHasFlag()){</span>
+<span class="fc" id="L95">                    boardCleared = false;</span>
                 }
             }
         }
-<span class="fc" id="L98">        return boardCleared;</span>
+<span class="fc" id="L99">        return boardCleared;</span>
     }
 
     public boolean checkFlaggedCorrect(){
-<span class="fc" id="L102">        boolean flagsCorrect = true;</span>
+<span class="fc" id="L103">        boolean flagsCorrect = true;</span>
 
-<span class="fc bfc" id="L104" title="All 2 branches covered.">        for(int i = 0; i &lt; this.height; i++){</span>
-<span class="fc bfc" id="L105" title="All 2 branches covered.">            for(int j = 0; j &lt; this.width; j++){</span>
-<span class="fc bfc" id="L106" title="All 2 branches covered.">                if(wholeGrid[i][j].getHasBomb()){</span>
-<span class="pc bpc" id="L107" title="1 of 2 branches missed.">                    if(!(wholeGrid[i][j].getHasFlag())){</span>
-<span class="nc" id="L108">                        flagsCorrect = false;</span>
+<span class="fc bfc" id="L105" title="All 2 branches covered.">        for(int i = 0; i &lt; this.height; i++){</span>
+<span class="fc bfc" id="L106" title="All 2 branches covered.">            for(int j = 0; j &lt; this.width; j++){</span>
+<span class="fc bfc" id="L107" title="All 2 branches covered.">                if(wholeGrid[i][j].getHasBomb()){</span>
+<span class="pc bpc" id="L108" title="1 of 2 branches missed.">                    if(!(wholeGrid[i][j].getHasFlag())){</span>
+<span class="nc" id="L109">                        flagsCorrect = false;</span>
                     }
                 } else {
-<span class="pc bpc" id="L111" title="1 of 2 branches missed.">                    if(wholeGrid[i][j].getHasFlag()){</span>
-<span class="nc bnc" id="L112" title="All 2 branches missed.">                        if(!(wholeGrid[i][j].getHasBomb())){</span>
-<span class="nc" id="L113">                            flagsCorrect = false;</span>
+<span class="pc bpc" id="L112" title="1 of 2 branches missed.">                    if(wholeGrid[i][j].getHasFlag()){</span>
+<span class="nc bnc" id="L113" title="All 2 branches missed.">                        if(!(wholeGrid[i][j].getHasBomb())){</span>
+<span class="nc" id="L114">                            flagsCorrect = false;</span>
                         }
                     }
                 }
             }
         }
-<span class="fc" id="L119">        return flagsCorrect;</span>
+<span class="fc" id="L120">        return flagsCorrect;</span>
     }
 
     @Override
     public String toString(){
-<span class="fc" id="L124">        StringBuilder result = new StringBuilder();</span>
-<span class="fc bfc" id="L125" title="All 2 branches covered.">        for(int i = 0; i &lt; height; i++){</span>
-<span class="fc bfc" id="L126" title="All 2 branches covered.">            for(int j = 0; j &lt; width; j++){</span>
-<span class="fc" id="L127">                result.append(wholeGrid[i][j].toString());</span>
+<span class="fc" id="L125">        StringBuilder result = new StringBuilder();</span>
+<span class="fc bfc" id="L126" title="All 2 branches covered.">        for(int i = 0; i &lt; height; i++){</span>
+<span class="fc bfc" id="L127" title="All 2 branches covered.">            for(int j = 0; j &lt; width; j++){</span>
+<span class="fc" id="L128">                result.append(wholeGrid[i][j].toString());</span>
             }
-<span class="fc" id="L129">            result.append(&quot;\n&quot;);</span>
+<span class="fc" id="L130">            result.append(&quot;\n&quot;);</span>
         }
-<span class="fc" id="L131">        return result.toString();</span>
+<span class="fc" id="L132">        return result.toString();</span>
     }
 
     public Tile[][] getWholeGrid(){
-<span class="fc" id="L135">        return this.wholeGrid;</span>
+<span class="fc" id="L136">        return this.wholeGrid;</span>
     }
 
     public void assignBombs(){
-<span class="fc" id="L139">        Random randomGen = new Random();</span>
 <span class="pc bpc" id="L140" title="1 of 2 branches missed.">        while(this.totalBombs &gt; 0){</span>
 <span class="nc" id="L141">            int randomHeight = randomGen.nextInt(height);</span>
 <span class="nc" id="L142">            int randomWidth = randomGen.nextInt(width);</span>
