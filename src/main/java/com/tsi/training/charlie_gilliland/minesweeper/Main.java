@@ -36,7 +36,6 @@ public class Main {
 
         // Setting condition to keep playing the game
         boolean gameOver = false;
-        boolean hasWon = false;
 
         // Main game loop
         do{
@@ -57,7 +56,6 @@ public class Main {
                     flagNotSelect = true;
                     inputOk = true;
                 } else if (flagOrSelect.equals("s")) {
-                    flagNotSelect = false;
                     inputOk = true;
                 } else {
                     logger.info("Enter either f / s");

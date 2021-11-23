@@ -66,16 +66,10 @@ public class Game {
     }
 
     public boolean endOfGameCheck(){
-        if(grid.checkBoardCleared()){
-            return true;
-        }
-        return false;
+        return grid.checkBoardCleared() ? true : false;
     }
 
     public boolean hasWonCheck(){
-        if(grid.checkFlaggedCorrect()){
-            return true;
-        }
-        return false;
+        return grid.checkFlaggedCorrect() ? true : false;
     }
 }

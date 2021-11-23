@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="8" failures="0" name="com.tsi.training.charlie_gilliland.minesweeper.tests.PlayerTest" time="0" errors="0" skipped="0">
+<testsuite tests="10" failures="0" name="com.tsi.training.charlie_gilliland.minesweeper.tests.PlayerTest" time="0" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="java.vm.version" value="17.0.1+12-LTS-39"/>
@@ -59,12 +59,14 @@
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="com.tsi.training.charlie_gilliland.minesweeper.tests.PlayerTest" name="com.tsi.training.charlie_gilliland.minesweeper.tests.PlayerTest.testIncreaseScore" time="0"/>
+  <testcase classname="com.tsi.training.charlie_gilliland.minesweeper.tests.PlayerTest" name="com.tsi.training.charlie_gilliland.minesweeper.tests.PlayerTest.testGetFlagsRemaining" time="0"/>
+  <testcase classname="com.tsi.training.charlie_gilliland.minesweeper.tests.PlayerTest" name="com.tsi.training.charlie_gilliland.minesweeper.tests.PlayerTest.testSetHasWon" time="0"/>
+  <testcase classname="com.tsi.training.charlie_gilliland.minesweeper.tests.PlayerTest" name="com.tsi.training.charlie_gilliland.minesweeper.tests.PlayerTest.testSelectTile" time="0"/>
+  <testcase classname="com.tsi.training.charlie_gilliland.minesweeper.tests.PlayerTest" name="com.tsi.training.charlie_gilliland.minesweeper.tests.PlayerTest.testEquals" time="0"/>
+  <testcase classname="com.tsi.training.charlie_gilliland.minesweeper.tests.PlayerTest" name="com.tsi.training.charlie_gilliland.minesweeper.tests.PlayerTest.testSetFlag" time="0"/>
+  <testcase classname="com.tsi.training.charlie_gilliland.minesweeper.tests.PlayerTest" name="com.tsi.training.charlie_gilliland.minesweeper.tests.PlayerTest.testHashcode" time="0"/>
   <testcase classname="com.tsi.training.charlie_gilliland.minesweeper.tests.PlayerTest" name="com.tsi.training.charlie_gilliland.minesweeper.tests.PlayerTest.testGetHasWon" time="0"/>
   <testcase classname="com.tsi.training.charlie_gilliland.minesweeper.tests.PlayerTest" name="com.tsi.training.charlie_gilliland.minesweeper.tests.PlayerTest.testGetName" time="0"/>
-  <testcase classname="com.tsi.training.charlie_gilliland.minesweeper.tests.PlayerTest" name="com.tsi.training.charlie_gilliland.minesweeper.tests.PlayerTest.testSetFlag" time="0"/>
-  <testcase classname="com.tsi.training.charlie_gilliland.minesweeper.tests.PlayerTest" name="com.tsi.training.charlie_gilliland.minesweeper.tests.PlayerTest.testSetHasWon" time="0"/>
   <testcase classname="com.tsi.training.charlie_gilliland.minesweeper.tests.PlayerTest" name="com.tsi.training.charlie_gilliland.minesweeper.tests.PlayerTest.testGetScore" time="0"/>
-  <testcase classname="com.tsi.training.charlie_gilliland.minesweeper.tests.PlayerTest" name="com.tsi.training.charlie_gilliland.minesweeper.tests.PlayerTest.testSelectTile" time="0"/>
-  <testcase classname="com.tsi.training.charlie_gilliland.minesweeper.tests.PlayerTest" name="com.tsi.training.charlie_gilliland.minesweeper.tests.PlayerTest.testGetFlagsRemaining" time="0"/>
+  <testcase classname="com.tsi.training.charlie_gilliland.minesweeper.tests.PlayerTest" name="com.tsi.training.charlie_gilliland.minesweeper.tests.PlayerTest.testIncreaseScore" time="0"/>
 </testsuite>

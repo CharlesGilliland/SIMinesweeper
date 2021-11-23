@@ -75,4 +75,9 @@ public class Player {
         return this.name == player.name && this.flagsRemaining == player.flagsRemaining && this.score == player.score;
     }
 
+    @Override
+    public int hashCode(){
+        return this.name.hashCode();
+    }
+
 }

@@ -64,7 +64,6 @@ public class Grid {
     }
 
 
-
     public void showAdjacentCleared(int r, int c){
         for(int i = r-1; i <= r+1; i++){
             for(int j = c-1; j <= c+1; j ++){
@@ -112,16 +111,12 @@ public class Grid {
 
         for(int i = 0; i < this.height; i++){
             for(int j = 0; j < this.width; j++){
-                if(wholeGrid[i][j].getHasBomb()){
-                    if(!(wholeGrid[i][j].getHasFlag())){
-                        flagsCorrect = false;
-                    }
+                if(wholeGrid[i][j].getHasBomb() && !(wholeGrid[i][j].getHasFlag())){
+                    flagsCorrect = false;
+                } else if(!wholeGrid[i][j].getHasBomb() && (wholeGrid[i][j].getHasFlag())){
+                    flagsCorrect = false;
                 } else {
-                    if(wholeGrid[i][j].getHasFlag()){
-                        if(!(wholeGrid[i][j].getHasBomb())){
-                            flagsCorrect = false;
-                        }
-                    }
+                    continue;
                 }
             }
         }

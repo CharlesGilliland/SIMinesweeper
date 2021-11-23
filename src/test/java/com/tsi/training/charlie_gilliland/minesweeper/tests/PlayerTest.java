@@ -1,5 +1,6 @@
 package com.tsi.training.charlie_gilliland.minesweeper.tests;
 
+import com.tsi.training.charlie_gilliland.minesweeper.Grid;
 import com.tsi.training.charlie_gilliland.minesweeper.Player;
 import com.tsi.training.charlie_gilliland.minesweeper.Tile;
 import org.junit.jupiter.api.Assertions;
@@ -89,5 +90,36 @@ public class PlayerTest {
 
         // getName should return the string of the player name supplied in constructor
         Assertions.assertEquals("Charlie", testPlayer.getName());
+    }
+
+    @Test
+    public void testEquals(){
+        Player p1 = new Player("Charlie", 5);
+        Player p2 = new Player("Charlie", 5);
+        // Equals should return true if the player objects have the same name, flagsRemaining and score
+        Assertions.assertEquals(true, p1.equals(p2));
+
+        // Equals should return false if any of these values are different
+        Player p3 = new Player("Jim", 5);
+        Assertions.assertEquals(false, p1.equals(p3));
+
+        // Equals should return false if two different objects are compared
+        Grid grid = new Grid(1,1);
+        Assertions.assertEquals(false, p1.equals(grid));
+
+        // Equals should return false if compared to null
+        Assertions.assertEquals(false, p1.equals(null));
+    }
+
+    @Test
+    public void testHashcode(){
+        Player p1 = new Player("Charlie", 5);
+        Player p2 = new Player("Charlie", 6);
+        // Hashcode for player is built on name so should be equal for 2 players with the same name
+        Assertions.assertEquals(true, p1.hashCode() == p2.hashCode());
+
+        // If the name is different, the hashcode should be different
+        Player p3 = new Player("Jim", 5);
+        Assertions.assertEquals(false, p1.hashCode() == p3.hashCode());
     }
 }

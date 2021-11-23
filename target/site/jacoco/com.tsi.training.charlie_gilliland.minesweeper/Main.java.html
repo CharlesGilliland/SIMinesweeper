@@ -36,52 +36,50 @@ import java.util.logging.Logger;
 
         // Setting condition to keep playing the game
 <span class="nc" id="L38">        boolean gameOver = false;</span>
-<span class="nc" id="L39">        boolean hasWon = false;</span>
 
         // Main game loop
         do{
-<span class="nc" id="L43">            logger.info(game.grid.toString());</span>
+<span class="nc" id="L42">            logger.info(game.grid.toString());</span>
             // Getting choices for tile
-<span class="nc" id="L45">            logger.info(&quot;Enter the row of the tile you want to select&quot;);</span>
-<span class="nc" id="L46">            int rowChoice = Integer.parseInt(input.next());</span>
-<span class="nc" id="L47">            logger.info(&quot;Enter the column of the tile you want to select&quot;);</span>
-<span class="nc" id="L48">            int columnChoice = Integer.parseInt(input.next());</span>
+<span class="nc" id="L44">            logger.info(&quot;Enter the row of the tile you want to select&quot;);</span>
+<span class="nc" id="L45">            int rowChoice = Integer.parseInt(input.next());</span>
+<span class="nc" id="L46">            logger.info(&quot;Enter the column of the tile you want to select&quot;);</span>
+<span class="nc" id="L47">            int columnChoice = Integer.parseInt(input.next());</span>
 
             // Setting either flag or select
-<span class="nc" id="L51">            logger.info(&quot;Do you want to flag or select? f / s&quot;);</span>
-<span class="nc" id="L52">            String flagOrSelect = input.next();</span>
-<span class="nc" id="L53">            boolean flagNotSelect = false;</span>
-<span class="nc" id="L54">            boolean inputOk = false;</span>
+<span class="nc" id="L50">            logger.info(&quot;Do you want to flag or select? f / s&quot;);</span>
+<span class="nc" id="L51">            String flagOrSelect = input.next();</span>
+<span class="nc" id="L52">            boolean flagNotSelect = false;</span>
+<span class="nc" id="L53">            boolean inputOk = false;</span>
             do {
-<span class="nc bnc" id="L56" title="All 2 branches missed.">                if (flagOrSelect.equals(&quot;f&quot;)) {</span>
-<span class="nc" id="L57">                    flagNotSelect = true;</span>
-<span class="nc" id="L58">                    inputOk = true;</span>
-<span class="nc bnc" id="L59" title="All 2 branches missed.">                } else if (flagOrSelect.equals(&quot;s&quot;)) {</span>
-<span class="nc" id="L60">                    flagNotSelect = false;</span>
-<span class="nc" id="L61">                    inputOk = true;</span>
+<span class="nc bnc" id="L55" title="All 2 branches missed.">                if (flagOrSelect.equals(&quot;f&quot;)) {</span>
+<span class="nc" id="L56">                    flagNotSelect = true;</span>
+<span class="nc" id="L57">                    inputOk = true;</span>
+<span class="nc bnc" id="L58" title="All 2 branches missed.">                } else if (flagOrSelect.equals(&quot;s&quot;)) {</span>
+<span class="nc" id="L59">                    inputOk = true;</span>
                 } else {
-<span class="nc" id="L63">                    logger.info(&quot;Enter either f / s&quot;);</span>
-<span class="nc" id="L64">                    flagOrSelect = input.next();</span>
+<span class="nc" id="L61">                    logger.info(&quot;Enter either f / s&quot;);</span>
+<span class="nc" id="L62">                    flagOrSelect = input.next();</span>
                 }
-<span class="nc bnc" id="L66" title="All 2 branches missed.">            } while(!inputOk);</span>
+<span class="nc bnc" id="L64" title="All 2 branches missed.">            } while(!inputOk);</span>
 
             // Creating the turn choices
-<span class="nc" id="L69">            TurnChoices choices = new TurnChoices(rowChoice, columnChoice, flagNotSelect);</span>
+<span class="nc" id="L67">            TurnChoices choices = new TurnChoices(rowChoice, columnChoice, flagNotSelect);</span>
 
             // Running the turn with the choices
-<span class="nc" id="L72">            game.playTurn(choices);</span>
+<span class="nc" id="L70">            game.playTurn(choices);</span>
 
-<span class="nc" id="L74">            gameOver = game.endOfGameCheck();</span>
-<span class="nc" id="L75">            game.player.setHasWon(game.hasWonCheck());</span>
-<span class="nc bnc" id="L76" title="All 2 branches missed.">        } while(!gameOver);</span>
+<span class="nc" id="L72">            gameOver = game.endOfGameCheck();</span>
+<span class="nc" id="L73">            game.player.setHasWon(game.hasWonCheck());</span>
+<span class="nc bnc" id="L74" title="All 2 branches missed.">        } while(!gameOver);</span>
 
 
-<span class="nc bnc" id="L79" title="All 2 branches missed.">        if(game.player.getHasWon()){</span>
-<span class="nc" id="L80">            logger.info(&quot;You have won the game!\nYour final score was &quot; + game.player.getScore());</span>
+<span class="nc bnc" id="L77" title="All 2 branches missed.">        if(game.player.getHasWon()){</span>
+<span class="nc" id="L78">            logger.info(&quot;You have won the game!\nYour final score was &quot; + game.player.getScore());</span>
         } else {
-<span class="nc" id="L82">            logger.info(&quot;You have lost the game!\nYour final score was &quot; + game.player.getScore());</span>
+<span class="nc" id="L80">            logger.info(&quot;You have lost the game!\nYour final score was &quot; + game.player.getScore());</span>
         }
-<span class="nc" id="L84">    }</span>
+<span class="nc" id="L82">    }</span>
 }
 
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
