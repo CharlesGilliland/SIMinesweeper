@@ -41,7 +41,6 @@ public class Game {
 
     public int playTurn(TurnChoices choices){
         // Turn will return -1 if loss, 0 if flags are unavailable or 1 if turn in successful
-        System.out.println(this.getPlayer().getFlagsRemaining());
         Tile selectedTile = grid.getWholeGrid()[choices.row][choices.column];
         if(choices.flagNotSelect){
             if(player.getFlagsRemaining() > 0){
