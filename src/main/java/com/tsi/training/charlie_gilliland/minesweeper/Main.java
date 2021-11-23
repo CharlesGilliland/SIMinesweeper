@@ -68,10 +68,11 @@ public class Main {
             game.playTurn(choices);
 
             gameOver = game.endOfGameCheck();
-            hasWon = game.hasWonCheck();
+            game.player.setHasWon(game.hasWonCheck());
         } while(!gameOver);
 
-        if(hasWon){
+
+        if(game.player.getHasWon()){
             logger.info("You have won the game!\nYour final score was " + game.player.getScore());
         } else {
             logger.info("You have lost the game!\nYour final score was " + game.player.getScore());

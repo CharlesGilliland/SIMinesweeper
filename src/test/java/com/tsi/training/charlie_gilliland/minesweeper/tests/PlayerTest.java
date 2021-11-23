@@ -41,9 +41,48 @@ public class PlayerTest {
     }
 
     @Test
+    public void testGetFlagsRemaining(){
+        Player testPlayer = new Player("Charlie", 5);
+        Assertions.assertEquals(5, testPlayer.getFlagsRemaining(), "The flags remaining value returned is wrong");
+    }
+
+    @Test
+    public void testGetScore(){
+        Player testPlayer = new Player("Charlie", 5);
+
+        // Score should be 0 when player is initialized
+        Assertions.assertEquals(0, testPlayer.getScore());
+    }
+
+    @Test
     public void testIncreaseScore(){
         Player testPlayer = new Player("Charlie", 5);
         testPlayer.increaseScore();
         Assertions.assertEquals(1, testPlayer.getScore());
+    }
+
+    @Test
+    public void testGetHasWon(){
+        Player testPlayer = new Player("Charlie", 5);
+
+        // hasWon should be false when a player is initialized
+        Assertions.assertEquals(false, testPlayer.getHasWon());
+    }
+
+    @Test
+    public void testSetHasWon(){
+        Player testPlayer = new Player("Charlie", 5);
+        testPlayer.setHasWon(true);
+
+        // hasWon should be false when a player is initialized
+        Assertions.assertEquals(true, testPlayer.getHasWon());
+    }
+
+    @Test
+    public void testGetName(){
+        Player testPlayer = new Player("Charlie", 5);
+
+        // getName should return the string of the player name supplied in constructor
+        Assertions.assertEquals("Charlie", testPlayer.getName());
     }
 }

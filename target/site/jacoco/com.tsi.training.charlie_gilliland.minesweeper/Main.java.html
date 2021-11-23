@@ -68,15 +68,16 @@ import java.util.logging.Logger;
 <span class="nc" id="L68">            game.playTurn(choices);</span>
 
 <span class="nc" id="L70">            gameOver = game.endOfGameCheck();</span>
-<span class="nc" id="L71">            hasWon = game.hasWonCheck();</span>
+<span class="nc" id="L71">            game.player.setHasWon(game.hasWonCheck());</span>
 <span class="nc bnc" id="L72" title="All 2 branches missed.">        } while(!gameOver);</span>
 
-<span class="nc bnc" id="L74" title="All 2 branches missed.">        if(hasWon){</span>
-<span class="nc" id="L75">            logger.info(&quot;You have won the game!\nYour final score was &quot; + game.player.getScore());</span>
+
+<span class="nc bnc" id="L75" title="All 2 branches missed.">        if(game.player.getHasWon()){</span>
+<span class="nc" id="L76">            logger.info(&quot;You have won the game!\nYour final score was &quot; + game.player.getScore());</span>
         } else {
-<span class="nc" id="L77">            logger.info(&quot;You have lost the game!\nYour final score was &quot; + game.player.getScore());</span>
+<span class="nc" id="L78">            logger.info(&quot;You have lost the game!\nYour final score was &quot; + game.player.getScore());</span>
         }
-<span class="nc" id="L79">    }</span>
+<span class="nc" id="L80">    }</span>
 }
 
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
