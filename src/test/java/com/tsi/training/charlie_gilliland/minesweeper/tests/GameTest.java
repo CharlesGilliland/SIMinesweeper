@@ -30,10 +30,10 @@ public class GameTest {
         testGame.createGame();
 
         // Checking that the grid contain the correct number of rows
-        Assertions.assertEquals(testGame.getGrid().getWholeGrid().length, 5, "The row length is incorrect");
+        Assertions.assertEquals(5, testGame.getGrid().getWholeGrid().length,"The row length is incorrect");
 
         // Checking that the grid contain the correct number of columns
-        Assertions.assertEquals(testGame.getGrid().getWholeGrid()[0].length, 5, "The row length is incorrect");
+        Assertions.assertEquals(5, testGame.getGrid().getWholeGrid()[0].length,"The row length is incorrect");
     }
 
     @Test

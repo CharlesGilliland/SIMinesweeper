@@ -115,8 +115,6 @@ public class Grid {
                     flagsCorrect = false;
                 } else if(!wholeGrid[i][j].getHasBomb() && (wholeGrid[i][j].getHasFlag())){
                     flagsCorrect = false;
-                } else {
-                    continue;
                 }
             }
         }

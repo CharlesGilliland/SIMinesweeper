@@ -81,7 +81,7 @@ public class GridTest {
         Grid testGrid = new Grid(10,10);
         testGrid.setDifficulty(1);
         testGrid.assignBombs();
-        System.out.println(testGrid.getTotalBombs());
+        Assertions.assertEquals(8, testGrid.getTotalBombs(), "Total bombs is returning the wrong value");
     }
 
     @Test
@@ -194,10 +194,10 @@ public class GridTest {
         Assertions.assertEquals("class [[Lcom.tsi.training.charlie_gilliland.minesweeper.Tile;", testGrid.getWholeGrid().getClass().toString());
 
         // Checking that the grid contain the correct number of rows
-        Assertions.assertEquals(testGrid.getWholeGrid().length, 3, "The row length is incorrect");
+        Assertions.assertEquals(3, testGrid.getWholeGrid().length, "The row length is incorrect");
 
         // Checking that the grid contain the correct number of columns
-        Assertions.assertEquals(testGrid.getWholeGrid()[0].length, 3, "The row length is incorrect");
+        Assertions.assertEquals(3, testGrid.getWholeGrid()[0].length, "The row length is incorrect");
     }
 
     @Test

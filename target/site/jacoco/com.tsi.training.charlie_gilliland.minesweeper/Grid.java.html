@@ -115,41 +115,39 @@ public class Grid {
 <span class="fc" id="L115">                    flagsCorrect = false;</span>
 <span class="fc bfc" id="L116" title="All 4 branches covered.">                } else if(!wholeGrid[i][j].getHasBomb() &amp;&amp; (wholeGrid[i][j].getHasFlag())){</span>
 <span class="fc" id="L117">                    flagsCorrect = false;</span>
-                } else {
-                    continue;
                 }
             }
         }
-<span class="fc" id="L123">        return flagsCorrect;</span>
+<span class="fc" id="L121">        return flagsCorrect;</span>
     }
 
     @Override
     public String toString(){
-<span class="fc" id="L128">        StringBuilder result = new StringBuilder(&quot;\n&quot;);</span>
-<span class="fc bfc" id="L129" title="All 2 branches covered.">        for(int i = 0; i &lt; height; i++){</span>
-<span class="fc bfc" id="L130" title="All 2 branches covered.">            for(int j = 0; j &lt; width; j++){</span>
-<span class="fc" id="L131">                result.append(wholeGrid[i][j].toString());</span>
+<span class="fc" id="L126">        StringBuilder result = new StringBuilder(&quot;\n&quot;);</span>
+<span class="fc bfc" id="L127" title="All 2 branches covered.">        for(int i = 0; i &lt; height; i++){</span>
+<span class="fc bfc" id="L128" title="All 2 branches covered.">            for(int j = 0; j &lt; width; j++){</span>
+<span class="fc" id="L129">                result.append(wholeGrid[i][j].toString());</span>
             }
-<span class="fc" id="L133">            result.append(&quot;\n&quot;);</span>
+<span class="fc" id="L131">            result.append(&quot;\n&quot;);</span>
         }
-<span class="fc" id="L135">        return result.toString();</span>
+<span class="fc" id="L133">        return result.toString();</span>
     }
 
     public Tile[][] getWholeGrid(){
-<span class="fc" id="L139">        return this.wholeGrid;</span>
+<span class="fc" id="L137">        return this.wholeGrid;</span>
     }
 
     public void assignBombs(){
-<span class="fc" id="L143">        int bombsRemaining = totalBombs;</span>
-<span class="fc bfc" id="L144" title="All 2 branches covered.">        while(bombsRemaining &gt; 0){</span>
-<span class="fc" id="L145">            int randomHeight = randomGen.nextInt(height);</span>
-<span class="fc" id="L146">            int randomWidth = randomGen.nextInt(width);</span>
-<span class="fc" id="L147">            Tile selectedTile = this.wholeGrid[randomHeight][randomWidth];</span>
-<span class="fc bfc" id="L148" title="All 2 branches covered.">            if(!selectedTile.getHasBomb()){</span>
-<span class="fc" id="L149">                selectedTile.setHasBomb(true);</span>
-<span class="fc" id="L150">                bombsRemaining--;</span>
+<span class="fc" id="L141">        int bombsRemaining = totalBombs;</span>
+<span class="fc bfc" id="L142" title="All 2 branches covered.">        while(bombsRemaining &gt; 0){</span>
+<span class="fc" id="L143">            int randomHeight = randomGen.nextInt(height);</span>
+<span class="fc" id="L144">            int randomWidth = randomGen.nextInt(width);</span>
+<span class="fc" id="L145">            Tile selectedTile = this.wholeGrid[randomHeight][randomWidth];</span>
+<span class="fc bfc" id="L146" title="All 2 branches covered.">            if(!selectedTile.getHasBomb()){</span>
+<span class="fc" id="L147">                selectedTile.setHasBomb(true);</span>
+<span class="fc" id="L148">                bombsRemaining--;</span>
             }
-<span class="fc" id="L152">        }</span>
-<span class="fc" id="L153">    }</span>
+<span class="fc" id="L150">        }</span>
+<span class="fc" id="L151">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
