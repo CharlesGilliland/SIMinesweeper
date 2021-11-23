@@ -47,7 +47,6 @@ public class Game {
         if(choices.flagNotSelect){
             if(player.getFlagsRemaining() > 0){
                 player.setFlag(selectedTile);
-
                 return 1;
             } else {
                 return 0;

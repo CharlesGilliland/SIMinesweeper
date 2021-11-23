@@ -37,19 +37,24 @@ public class Grid {
         this.difficulty = d;
         switch(d){
             case 5:
-                this.totalBombs = ((int)(totalTiles/2.5));
+                int veryHard = ((int)(totalTiles/2.5));
+                this.totalBombs = veryHard == 0 ? 1 : veryHard;
                 break;
             case 4:
-                this.totalBombs = ((int)(totalTiles/3.125));
+                int hard = ((int)(totalTiles/3.125));
+                this.totalBombs = hard == 0 ? 1 : hard;
                 break;
             case 3:
-                this.totalBombs =  ((int)(totalTiles/4.16));
+                int normal = ((int)(totalTiles/4.16));
+                this.totalBombs =  normal == 0 ? 1 : normal;
                 break;
             case 2:
-                this.totalBombs =  ((int)(totalTiles/6.25));
+                int easy = ((int)(totalTiles/6.25));
+                this.totalBombs =  easy == 0 ? 1 : easy;
                 break;
             default:
-                this.totalBombs =  ((int)(totalTiles/12.5));
+                int veryEasy = ((int)(totalTiles/12.5));
+                this.totalBombs =  veryEasy == 0 ? 1 : veryEasy;
                 break;
         }
     }
