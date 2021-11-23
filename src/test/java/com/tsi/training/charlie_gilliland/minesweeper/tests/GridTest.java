@@ -99,9 +99,7 @@ public class GridTest {
 
         testGrid.getWholeGrid()[0][1].setHasFlag(true);
 
-        System.out.println(testGrid);
         // If bombs are present and all flagged this should be true
-
         Assertions.assertTrue(testGrid.checkFlaggedCorrect());
     }
 

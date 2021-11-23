@@ -9,6 +9,7 @@ public class Grid {
     int totalTiles;
     int difficulty;
     int totalBombs;
+    Random randomGen = new Random();
 
     Tile[][] wholeGrid;
 
@@ -136,7 +137,6 @@ public class Grid {
     }
 
     public void assignBombs(){
-        Random randomGen = new Random();
         while(this.totalBombs > 0){
             int randomHeight = randomGen.nextInt(height);
             int randomWidth = randomGen.nextInt(width);

@@ -1,20 +1,24 @@
 package com.tsi.training.charlie_gilliland.minesweeper;
 
 import java.util.Scanner;
+import java.util.logging.Logger;
 
 public class Main {
+    private static final Logger logger = Logger.getLogger(Main.class.getName());
+    private static Scanner input = new Scanner(System.in);
+
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
+
         boolean gameOver = false;
 
         // Generating Game Board
-        System.out.println("Enter height and width for the board:");
-        System.out.print("Height: ");
+        logger.info("Enter height and width for the board:");
+        logger.info("Height: ");
         int height = Integer.parseInt(input.next());
-        System.out.print("Width: ");
+        logger.info("Width: ");
         int width = Integer.parseInt(input.next());
         // Setting difficulty
-        System.out.println("Enter difficulty (1 - 5): ");
+        logger.info("Enter difficulty (1 - 5): ");
         int difficulty = Integer.parseInt(input.next());
         Grid grid = new Grid(height,width);
         grid.setDifficulty(difficulty);
@@ -25,23 +29,23 @@ public class Main {
 
 
         // Creating Player
-        System.out.print("Enter your player name:");
+        logger.info("Enter your player name:");
         String name = input.next();
         Player player = new Player(name, (grid.getTotalBombs() + 4));
 
 
         do{
-            System.out.println(grid);
-            System.out.println(player.getName() + " - Current Score: " + player.getScore());
+            logger.info(grid.toString());
+            logger.info(player.getName() + " - Current Score: " + player.getScore());
 
-            System.out.println("Enter the row of the tile you want to select");
+            logger.info("Enter the row of the tile you want to select");
             int rowChoice = Integer.parseInt(input.next());
-            System.out.println("Enter the column of the tile you want to select");
+            logger.info("Enter the column of the tile you want to select");
             int columnChoice = Integer.parseInt(input.next());
 
             Tile selectedTile = grid.wholeGrid[rowChoice][columnChoice];
 
-            System.out.println("Do you want to flag or select? f / s");
+            logger.info("Do you want to flag or select? f / s");
             String flagOrSelect = input.next();
             boolean inputOk = false;
 
@@ -51,7 +55,7 @@ public class Main {
                         player.setFlag(selectedTile);
                         inputOk = true;
                     } else {
-                        System.out.println("You have no remaining flags");
+                        logger.info("You have no remaining flags");
                     }
                 }
                 else if (flagOrSelect.equals("s")){
@@ -68,7 +72,7 @@ public class Main {
                     inputOk = true;
                 }
                 else {
-                    System.out.println("Enter either f / s");
+                    logger.info("Enter either f / s");
                     flagOrSelect = input.next();
                 }
             } while(!inputOk);
@@ -83,11 +87,11 @@ public class Main {
             }
         } while(!gameOver);
         if(player.getHasWon()){
-            System.out.println("Congratulations  " + player.getName() + "!");
-            System.out.println("You finished with a score of " + player.getScore());
+            logger.info("Congratulations  " + player.getName() + "!");
+            logger.info("You finished with a score of " + player.getScore());
         } else {
-            System.out.println("You've lost the game, with a final score of " + player.getScore());
-            System.out.println("Better luck next time!");
+            logger.info("You've lost the game, with a final score of " + player.getScore());
+            logger.info("Better luck next time!");
         }
 
 
