@@ -56,7 +56,7 @@ public class GridTest {
         Grid testGrid = new Grid(3,3);
         testGrid.getWholeGrid()[0][0].setHasBomb(true);
         testGrid.getWholeGrid()[0][1].setHasBomb(true);
-        Assertions.assertEquals(testGrid.showBombsNearby(1,1), 2, "The number of bombs detected nearby is wrong");
+        Assertions.assertEquals(2, testGrid.showBombsNearby(1,1), "The number of bombs detected nearby is wrong");
     }
 
     @Test
@@ -129,7 +129,7 @@ public class GridTest {
                 }
             }
         }
-        Assertions.assertEquals(testGrid.getTotalBombs(), 0, "Not all the bombs were assigned");
+        Assertions.assertEquals(0, testGrid.getTotalBombs(), "Not all the bombs were assigned");
         Assertions.assertEquals(bombsBeforeAssignment, noOfBombs);
     }
 }
