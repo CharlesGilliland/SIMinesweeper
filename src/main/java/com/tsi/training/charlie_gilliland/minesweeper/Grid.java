@@ -1,5 +1,7 @@
 package com.tsi.training.charlie_gilliland.minesweeper;
 
+import java.util.Random;
+
 public class Grid {
     // Attributes
     int height;
@@ -98,12 +100,19 @@ public class Grid {
 
     public boolean checkFlaggedCorrect(){
         boolean flagsCorrect = true;
-        for(int i = 0; i < height; i++){
-            for(int j = 0; j < width; j++){
-                if(wholeGrid[i][j].getHasFlag() & !wholeGrid[i][j].getHasBomb()){
-                    flagsCorrect = false;
-                } else if(!wholeGrid[i][j].getHasFlag() & wholeGrid[i][j].getHasBomb()){
-                    flagsCorrect = false;
+
+        for(int i = 0; i < this.height; i++){
+            for(int j = 0; j < this.width; j++){
+                if(wholeGrid[i][j].getHasBomb()){
+                    if(!(wholeGrid[i][j].getHasFlag())){
+                        flagsCorrect = false;
+                    }
+                } else {
+                    if(wholeGrid[i][j].getHasFlag()){
+                        if(!(wholeGrid[i][j].getHasBomb())){
+                            flagsCorrect = false;
+                        }
+                    }
                 }
             }
         }
@@ -127,13 +136,12 @@ public class Grid {
     }
 
     public void assignBombs(){
+        Random randomGen = new Random();
         while(this.totalBombs > 0){
-            int randomHeight = (int)(Math.random() * height);
-            int randomWidth = (int)(Math.random() * width);
+            int randomHeight = randomGen.nextInt(height);
+            int randomWidth = randomGen.nextInt(width);
             Tile selectedTile = this.wholeGrid[randomHeight][randomWidth];
-            if(selectedTile.getHasBomb()){
-                continue;
-            } else {
+            if(!selectedTile.getHasBomb()){
                 selectedTile.setHasBomb(true);
                 this.totalBombs--;
             }
