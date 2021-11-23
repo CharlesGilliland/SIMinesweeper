@@ -40,37 +40,34 @@ public class Game {
 
     public int playTurn(TurnChoices choices){
         // Turn will return -1 if loss, 0 if flags are unavailable or 1 if turn in successful
-<span class="pc bpc" id="L43" title="2 of 4 branches missed.">        if(this.grid == null || this.player == null){</span>
-<span class="nc" id="L44">            return -1;</span>
-        }
-<span class="fc" id="L46">        Tile selectedTile = grid.getWholeGrid()[choices.row][choices.column];</span>
-<span class="fc bfc" id="L47" title="All 2 branches covered.">        if(choices.flagNotSelect){</span>
-<span class="fc bfc" id="L48" title="All 2 branches covered.">            if(player.getFlagsRemaining() &gt; 0){</span>
-<span class="fc" id="L49">                player.setFlag(selectedTile);</span>
-<span class="fc" id="L50">                return 1;</span>
+<span class="fc" id="L43">        Tile selectedTile = grid.getWholeGrid()[choices.row][choices.column];</span>
+<span class="fc bfc" id="L44" title="All 2 branches covered.">        if(choices.flagNotSelect){</span>
+<span class="fc bfc" id="L45" title="All 2 branches covered.">            if(player.getFlagsRemaining() &gt; 0){</span>
+<span class="fc" id="L46">                player.setFlag(selectedTile);</span>
+<span class="fc" id="L47">                return 1;</span>
             } else {
-<span class="fc" id="L52">                return 0;</span>
+<span class="fc" id="L49">                return 0;</span>
             }
         } else {
-<span class="fc" id="L55">            boolean result = player.selectTile(selectedTile);</span>
-<span class="fc bfc" id="L56" title="All 2 branches covered.">            if(result){</span>
-<span class="fc" id="L57">                selectedTile.setBombsNearby(grid.showBombsNearby(choices.row, choices.column));</span>
-<span class="pc bpc" id="L58" title="1 of 2 branches missed.">                if(selectedTile.getBombsNearby() &lt; 1){</span>
-<span class="nc" id="L59">                    grid.showAdjacentCleared(choices.row, choices.column);</span>
+<span class="fc" id="L52">            boolean result = player.selectTile(selectedTile);</span>
+<span class="fc bfc" id="L53" title="All 2 branches covered.">            if(result){</span>
+<span class="fc" id="L54">                selectedTile.setBombsNearby(grid.showBombsNearby(choices.row, choices.column));</span>
+<span class="pc bpc" id="L55" title="1 of 2 branches missed.">                if(selectedTile.getBombsNearby() &lt; 1){</span>
+<span class="nc" id="L56">                    grid.showAdjacentCleared(choices.row, choices.column);</span>
                 }
-<span class="fc" id="L61">                return 1;</span>
+<span class="fc" id="L58">                return 1;</span>
             } else {
-<span class="fc" id="L63">                return -1;</span>
+<span class="fc" id="L60">                return -1;</span>
             }
         }
     }
 
     public boolean endOfGameCheck(){
-<span class="fc bfc" id="L69" title="All 2 branches covered.">        return grid.checkBoardCleared() ? true : false;</span>
+<span class="fc bfc" id="L66" title="All 2 branches covered.">        return grid.checkBoardCleared() ? true : false;</span>
     }
 
     public boolean hasWonCheck(){
-<span class="fc bfc" id="L73" title="All 2 branches covered.">        return grid.checkFlaggedCorrect() ? true : false;</span>
+<span class="fc bfc" id="L70" title="All 2 branches covered.">        return grid.checkFlaggedCorrect() ? true : false;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
