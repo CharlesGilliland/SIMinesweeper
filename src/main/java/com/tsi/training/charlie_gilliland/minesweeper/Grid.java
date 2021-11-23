@@ -122,7 +122,7 @@ public class Grid {
 
     @Override
     public String toString(){
-        StringBuilder result = new StringBuilder();
+        StringBuilder result = new StringBuilder("\n");
         for(int i = 0; i < height; i++){
             for(int j = 0; j < width; j++){
                 result.append(wholeGrid[i][j].toString());

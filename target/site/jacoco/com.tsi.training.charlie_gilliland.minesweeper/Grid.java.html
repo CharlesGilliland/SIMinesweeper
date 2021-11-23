@@ -54,8 +54,8 @@ public class Grid {
     }
 
     public void setTotalBombs(){
-<span class="nc" id="L57">        this.totalBombs = this.setDifficulty(difficulty);</span>
-<span class="nc" id="L58">    }</span>
+<span class="fc" id="L57">        this.totalBombs = this.setDifficulty(difficulty);</span>
+<span class="fc" id="L58">    }</span>
 
     public void showAdjacentCleared(int r, int c){
 <span class="fc bfc" id="L61" title="All 2 branches covered.">        for(int i = r-1; i &lt;= r+1; i++){</span>
@@ -122,7 +122,7 @@ public class Grid {
 
     @Override
     public String toString(){
-<span class="fc" id="L125">        StringBuilder result = new StringBuilder();</span>
+<span class="fc" id="L125">        StringBuilder result = new StringBuilder(&quot;\n&quot;);</span>
 <span class="fc bfc" id="L126" title="All 2 branches covered.">        for(int i = 0; i &lt; height; i++){</span>
 <span class="fc bfc" id="L127" title="All 2 branches covered.">            for(int j = 0; j &lt; width; j++){</span>
 <span class="fc" id="L128">                result.append(wholeGrid[i][j].toString());</span>

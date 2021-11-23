@@ -36,6 +36,18 @@ public class GridTest {
     }
 
     @Test
+    public void testGetAndSetTotalBombs(){
+        Grid testGrid = new Grid(10,10);
+        testGrid.setDifficulty(5);
+        testGrid.setTotalBombs();
+        int result = testGrid.getTotalBombs();
+
+        // Set difficulty should set the total number of bombs
+        Assertions.assertEquals(40, result, "The number of bombs set by the difficulty is wrong");
+    }
+
+
+    @Test
     public void testShowAdjacentCleared(){
         Grid testGrid = new Grid(3, 3);
         // A new grid is created without any bombs
@@ -106,13 +118,26 @@ public class GridTest {
     @Test
     public void testToString(){
         Grid testGrid = new Grid(2,2);
-        String result = "|  ?  ||  ?  |\n|  ?  ||  ?  |\n";
+        String result = "\n|  ?  ||  ?  |\n|  ?  ||  ?  |\n";
         Assertions.assertEquals(testGrid.toString(), result, "The grid is not displaying properly with toString");
 
         testGrid.getWholeGrid()[0][0].setHasFlag(true);
-        String resultWithFlag = "|  f  ||  ?  |\n|  ?  ||  ?  |\n";
+        String resultWithFlag = "\n|  f  ||  ?  |\n|  ?  ||  ?  |\n";
         Assertions.assertEquals(testGrid.toString(), resultWithFlag, "The grid is not displaying properly with toString");
 
+    }
+
+    @Test
+    public void testGetWholeGrid(){
+        Grid testGrid = new Grid(3,3);
+        // Asserting that the grid is the correct class
+        Assertions.assertEquals("class [[Lcom.tsi.training.charlie_gilliland.minesweeper.Tile;", testGrid.getWholeGrid().getClass().toString());
+
+        // Checking that the grid contain the correct number of rows
+        Assertions.assertEquals(testGrid.getWholeGrid().length, 3, "The row length is incorrect");
+
+        // Checking that the grid contain the correct number of columns
+        Assertions.assertEquals(testGrid.getWholeGrid()[0].length, 3, "The row length is incorrect");
     }
 
     @Test

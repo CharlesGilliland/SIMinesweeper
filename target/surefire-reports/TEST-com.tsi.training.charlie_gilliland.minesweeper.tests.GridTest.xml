@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="8" failures="0" name="com.tsi.training.charlie_gilliland.minesweeper.tests.GridTest" time="0.02" errors="0" skipped="0">
+<testsuite tests="10" failures="0" name="com.tsi.training.charlie_gilliland.minesweeper.tests.GridTest" time="0.023" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="java.vm.version" value="17.0.1+12-LTS-39"/>
@@ -59,12 +59,14 @@
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="com.tsi.training.charlie_gilliland.minesweeper.tests.GridTest" name="com.tsi.training.charlie_gilliland.minesweeper.tests.GridTest.testShowAdjacentCleared" time="0.013"/>
+  <testcase classname="com.tsi.training.charlie_gilliland.minesweeper.tests.GridTest" name="com.tsi.training.charlie_gilliland.minesweeper.tests.GridTest.testShowAdjacentCleared" time="0.014"/>
   <testcase classname="com.tsi.training.charlie_gilliland.minesweeper.tests.GridTest" name="com.tsi.training.charlie_gilliland.minesweeper.tests.GridTest.testShowsBombsNearby" time="0.001"/>
-  <testcase classname="com.tsi.training.charlie_gilliland.minesweeper.tests.GridTest" name="com.tsi.training.charlie_gilliland.minesweeper.tests.GridTest.testCheckBoardCleared" time="0.001"/>
+  <testcase classname="com.tsi.training.charlie_gilliland.minesweeper.tests.GridTest" name="com.tsi.training.charlie_gilliland.minesweeper.tests.GridTest.testCheckBoardCleared" time="0.002"/>
   <testcase classname="com.tsi.training.charlie_gilliland.minesweeper.tests.GridTest" name="com.tsi.training.charlie_gilliland.minesweeper.tests.GridTest.testCheckFlaggedCorrect" time="0"/>
+  <testcase classname="com.tsi.training.charlie_gilliland.minesweeper.tests.GridTest" name="com.tsi.training.charlie_gilliland.minesweeper.tests.GridTest.testGetAndSetTotalBombs" time="0"/>
+  <testcase classname="com.tsi.training.charlie_gilliland.minesweeper.tests.GridTest" name="com.tsi.training.charlie_gilliland.minesweeper.tests.GridTest.testGetWholeGrid" time="0.006"/>
+  <testcase classname="com.tsi.training.charlie_gilliland.minesweeper.tests.GridTest" name="com.tsi.training.charlie_gilliland.minesweeper.tests.GridTest.testToString" time="0"/>
   <testcase classname="com.tsi.training.charlie_gilliland.minesweeper.tests.GridTest" name="com.tsi.training.charlie_gilliland.minesweeper.tests.GridTest.testAssignBombs" time="0"/>
-  <testcase classname="com.tsi.training.charlie_gilliland.minesweeper.tests.GridTest" name="com.tsi.training.charlie_gilliland.minesweeper.tests.GridTest.testToString" time="0.005"/>
-  <testcase classname="com.tsi.training.charlie_gilliland.minesweeper.tests.GridTest" name="com.tsi.training.charlie_gilliland.minesweeper.tests.GridTest.testSetDifficulty" time="0"/>
   <testcase classname="com.tsi.training.charlie_gilliland.minesweeper.tests.GridTest" name="com.tsi.training.charlie_gilliland.minesweeper.tests.GridTest.testPopulateGrid" time="0"/>
+  <testcase classname="com.tsi.training.charlie_gilliland.minesweeper.tests.GridTest" name="com.tsi.training.charlie_gilliland.minesweeper.tests.GridTest.testSetDifficulty" time="0"/>
 </testsuite>
