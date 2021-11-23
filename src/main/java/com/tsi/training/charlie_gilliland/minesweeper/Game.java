@@ -23,6 +23,7 @@ public class Game {
         this.grid = new Grid(options.row, options.column);
         this.grid.setDifficulty(options.difficulty);
         this.grid.assignBombs();
+        this.grid.assigningBombsNearby();
 
         // Creating the player
         this.player = new Player(options.name, (this.grid.getTotalBombs() + 4));

@@ -63,10 +63,9 @@ public class Grid {
         return totalBombs;
     }
 
-
     public void showAdjacentCleared(int r, int c){
         for(int i = r-1; i <= r+1; i++){
-            for(int j = c-1; j <= c+1; j ++){
+            for(int j = c-1; j <= c+1; j++){
                 if(i < 0 || j < 0 || i >= height || j >= width){
                     continue;
                 }
@@ -75,6 +74,10 @@ public class Grid {
                 if(!selectedTile.getHasBomb()){
                     selectedTile.setCleared(true);
                 }
+                if(selectedTile.getBombsNearby() == 0 && !selectedTile.getCleared()){
+                    this.showAdjacentCleared(i, j);
+                }
+
             }
         }
     }
@@ -92,6 +95,14 @@ public class Grid {
             }
         }
         return totalMines;
+    }
+
+    public void assigningBombsNearby(){
+        for(int i = 0; i < height; i++){
+            for(int j = 0; j < width; j++){
+                this.getWholeGrid()[i][j].setBombsNearby(this.showBombsNearby(i, j));
+            }
+        }
     }
 
     public boolean checkBoardCleared(){

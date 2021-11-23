@@ -23,51 +23,56 @@ public class Game {
 <span class="fc" id="L23">        this.grid = new Grid(options.row, options.column);</span>
 <span class="fc" id="L24">        this.grid.setDifficulty(options.difficulty);</span>
 <span class="fc" id="L25">        this.grid.assignBombs();</span>
+<span class="fc" id="L26">        this.grid.assigningBombsNearby();</span>
 
         // Creating the player
-<span class="fc" id="L28">        this.player = new Player(options.name, (this.grid.getTotalBombs() + 4));</span>
+<span class="fc" id="L29">        this.player = new Player(options.name, (this.grid.getTotalBombs() + 4));</span>
 
-<span class="fc" id="L30">        return 1;</span>
+<span class="fc" id="L31">        return 1;</span>
     }
 
     public Grid getGrid(){
-<span class="fc" id="L34">        return this.grid;</span>
+<span class="fc" id="L35">        return this.grid;</span>
     }
 
     public Player getPlayer(){
-<span class="fc" id="L38">        return this.player;</span>
+<span class="fc" id="L39">        return this.player;</span>
     }
 
     public int playTurn(TurnChoices choices){
         // Turn will return -1 if loss, 0 if flags are unavailable or 1 if turn in successful
-<span class="fc" id="L43">        Tile selectedTile = grid.getWholeGrid()[choices.row][choices.column];</span>
-<span class="fc bfc" id="L44" title="All 2 branches covered.">        if(choices.flagNotSelect){</span>
-<span class="fc bfc" id="L45" title="All 2 branches covered.">            if(player.getFlagsRemaining() &gt; 0){</span>
-<span class="fc" id="L46">                player.setFlag(selectedTile);</span>
-<span class="fc" id="L47">                return 1;</span>
+<span class="fc" id="L44">        System.out.println(this.getPlayer().getFlagsRemaining());</span>
+<span class="fc" id="L45">        Tile selectedTile = grid.getWholeGrid()[choices.row][choices.column];</span>
+<span class="fc bfc" id="L46" title="All 2 branches covered.">        if(choices.flagNotSelect){</span>
+<span class="fc bfc" id="L47" title="All 2 branches covered.">            if(player.getFlagsRemaining() &gt; 0){</span>
+<span class="fc" id="L48">                player.setFlag(selectedTile);</span>
+<span class="fc" id="L49">                return 1;</span>
             } else {
-<span class="fc" id="L49">                return 0;</span>
+<span class="fc" id="L51">                return 0;</span>
             }
         } else {
-<span class="fc" id="L52">            boolean result = player.selectTile(selectedTile);</span>
-<span class="fc bfc" id="L53" title="All 2 branches covered.">            if(result){</span>
-<span class="fc" id="L54">                selectedTile.setBombsNearby(grid.showBombsNearby(choices.row, choices.column));</span>
-<span class="pc bpc" id="L55" title="1 of 2 branches missed.">                if(selectedTile.getBombsNearby() &lt; 1){</span>
-<span class="nc" id="L56">                    grid.showAdjacentCleared(choices.row, choices.column);</span>
+<span class="fc" id="L54">            boolean result = player.selectTile(selectedTile);</span>
+<span class="fc bfc" id="L55" title="All 2 branches covered.">            if(result){</span>
+<span class="fc" id="L56">                selectedTile.setCleared(true);</span>
+<span class="fc" id="L57">                selectedTile.setBombsNearby(grid.showBombsNearby(choices.row, choices.column));</span>
+<span class="pc bpc" id="L58" title="1 of 2 branches missed.">                if(selectedTile.getBombsNearby() &lt; 1){</span>
+<span class="nc" id="L59">                    grid.showAdjacentCleared(choices.row, choices.column);</span>
                 }
-<span class="fc" id="L58">                return 1;</span>
+<span class="fc" id="L61">                return 1;</span>
             } else {
-<span class="fc" id="L60">                return -1;</span>
+<span class="fc" id="L63">                return -1;</span>
             }
         }
+
+
     }
 
     public boolean endOfGameCheck(){
-<span class="fc bfc" id="L66" title="All 2 branches covered.">        return grid.checkBoardCleared() ? true : false;</span>
+<span class="fc bfc" id="L71" title="All 2 branches covered.">        return grid.checkBoardCleared() ? true : false;</span>
     }
 
     public boolean hasWonCheck(){
-<span class="fc bfc" id="L70" title="All 2 branches covered.">        return grid.checkFlaggedCorrect() ? true : false;</span>
+<span class="fc bfc" id="L75" title="All 2 branches covered.">        return grid.checkFlaggedCorrect() ? true : false;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

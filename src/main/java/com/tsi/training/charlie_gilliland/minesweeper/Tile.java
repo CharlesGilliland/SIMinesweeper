@@ -12,6 +12,7 @@ public class Tile {
     public Tile(){
         this.setHasFlag(false);
         this.setCleared(false);
+        bombsNearby = -1;
     }
 
     // Methods

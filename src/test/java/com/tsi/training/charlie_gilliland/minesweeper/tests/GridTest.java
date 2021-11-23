@@ -131,6 +131,21 @@ public class GridTest {
     }
 
     @Test
+    public void testAssigningBombsNearby(){
+        Grid testGrid = new Grid(2,2);
+        testGrid.assigningBombsNearby();
+        boolean bombsAssigned = true;
+        for(int i = 0; i < 2 ; i++){
+            for(int j = 0; j < 2; j++){
+                if(testGrid.getWholeGrid()[i][j].getBombsNearby() < 0){
+                    bombsAssigned = false;
+                }
+            }
+        }
+        Assertions.assertTrue(bombsAssigned, "One or more of the bombs have not been assigned a value for bombsNearby");
+    }
+
+    @Test
     public void testCheckBoardCleared(){
         Grid testGrid = new Grid(2,2);
         // CheckBoardCleared should return false
