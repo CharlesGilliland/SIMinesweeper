@@ -94,6 +94,7 @@ public class GridTest {
         Assertions.assertEquals(40, result, "The number of bombs set by the difficulty is wrong");
     }
 
+
     @Test
     public void testShowAdjacentCleared(){
         Grid testGrid = new Grid(3, 3);
@@ -102,25 +103,15 @@ public class GridTest {
         boolean clearedCheck = true;
         for(int i = 0; i < 3 ; i++){
             for(int j = 0; j < 3; j++){
-                if(!testGrid.getWholeGrid()[i][j].getCleared()){
+                Tile selectedTile = testGrid.getWholeGrid()[i][j];
+                if(!selectedTile.getCleared()){
                     clearedCheck = false;
                 }
             }
         }
-        Assertions.assertTrue(clearedCheck, "The tiles surrounding were not cleared");
-
-        testGrid.showAdjacentCleared(0, 0);
-        boolean clearedZeroCheck = true;
-        for(int i = 0; i < 3 ; i++){
-            for(int j = 0; j < 3; j++){
-                if(!testGrid.getWholeGrid()[i][j].getCleared()){
-                    clearedZeroCheck = false;
-                }
-            }
-        }
-        Assertions.assertTrue(clearedZeroCheck, "The tiles surrounding were not cleared when 0 was passed");
-
+        Assertions.assertTrue(clearedCheck, "Not all the spaces surrounding have been cleared");
     }
+
 
     @Test
     public void testShowsBombsNearby(){
@@ -133,7 +124,7 @@ public class GridTest {
     @Test
     public void testAssigningBombsNearby(){
         Grid testGrid = new Grid(2,2);
-        testGrid.assigningBombsNearby();
+        testGrid.assignBombsNearby();
         boolean bombsAssigned = true;
         for(int i = 0; i < 2 ; i++){
             for(int j = 0; j < 2; j++){

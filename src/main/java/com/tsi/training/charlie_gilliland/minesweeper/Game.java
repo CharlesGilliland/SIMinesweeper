@@ -23,7 +23,7 @@ public class Game {
         this.grid = new Grid(options.row, options.column);
         this.grid.setDifficulty(options.difficulty);
         this.grid.assignBombs();
-        this.grid.assigningBombsNearby();
+        this.grid.assignBombsNearby();
 
         // Creating the player
         this.player = new Player(options.name, (this.grid.getTotalBombs() + 4));
@@ -52,11 +52,11 @@ public class Game {
         } else {
             boolean result = player.selectTile(selectedTile);
             if(result){
-                selectedTile.setCleared(true);
                 selectedTile.setBombsNearby(grid.showBombsNearby(choices.row, choices.column));
                 if(selectedTile.getBombsNearby() < 1){
                     grid.showAdjacentCleared(choices.row, choices.column);
                 }
+                selectedTile.setCleared(true);
                 return 1;
             } else {
                 return -1;

@@ -19,7 +19,6 @@ public class Player {
         if(tile.getHasBomb()){
             return false;
         }
-        tile.setCleared(true);
         this.score++;
         return true;
     }

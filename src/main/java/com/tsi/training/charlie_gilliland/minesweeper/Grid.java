@@ -64,20 +64,18 @@ public class Grid {
     }
 
     public void showAdjacentCleared(int r, int c){
-        for(int i = r-1; i <= r+1; i++){
-            for(int j = c-1; j <= c+1; j++){
-                if(i < 0 || j < 0 || i >= height || j >= width){
-                    continue;
+        Tile selectedTile = wholeGrid[r][c];
+        if(!selectedTile.getCleared() && !selectedTile.getHasBomb()){
+            selectedTile.setCleared(true);
+            for(int i = r-1; i <= r+1; i++){
+                for(int j = c-1; j <= c+1; j++){
+                    if (i < 0 || j < 0 || i >= height || j >= width) {
+                        continue;
+                    }
+                    if(selectedTile.getBombsNearby() == 0){
+                        showAdjacentCleared(i, j);
+                    }
                 }
-                Tile selectedTile = wholeGrid[i][j];
-                selectedTile.setBombsNearby(showBombsNearby(i, j));
-                if(!selectedTile.getHasBomb()){
-                    selectedTile.setCleared(true);
-                }
-                if(selectedTile.getBombsNearby() == 0 && !selectedTile.getCleared()){
-                    this.showAdjacentCleared(i, j);
-                }
-
             }
         }
     }
@@ -97,7 +95,7 @@ public class Grid {
         return totalMines;
     }
 
-    public void assigningBombsNearby(){
+    public void assignBombsNearby(){
         for(int i = 0; i < height; i++){
             for(int j = 0; j < width; j++){
                 this.getWholeGrid()[i][j].setBombsNearby(this.showBombsNearby(i, j));

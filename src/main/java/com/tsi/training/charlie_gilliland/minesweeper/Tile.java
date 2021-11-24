@@ -12,7 +12,6 @@ public class Tile {
     public Tile(){
         this.setHasFlag(false);
         this.setCleared(false);
-        bombsNearby = -1;
     }
 
     // Methods
@@ -23,6 +22,10 @@ public class Tile {
         }
         else if(this.getCleared()){
             return "|  " + bombsNearby + "  |";
+        }
+
+        else if(this.getHasBomb()){
+            return "|  X  |";
         }
 
         else {
