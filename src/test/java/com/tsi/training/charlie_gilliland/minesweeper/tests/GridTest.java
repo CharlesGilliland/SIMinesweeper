@@ -110,6 +110,26 @@ public class GridTest {
             }
         }
         Assertions.assertTrue(clearedCheck, "Not all the spaces surrounding have been cleared");
+
+        // Setting up a 5 by 5 grid
+        testGrid = new Grid(5,5);
+
+        // Setting the bottom right tile to be surrounded by bombs
+        testGrid.getWholeGrid()[4][3].setHasBomb(true);
+        testGrid.getWholeGrid()[3][4].setHasBomb(true);
+        testGrid.assignBombsNearby();
+
+        // Calling showAdjacentCleared on tile position 0, 0
+        testGrid.showAdjacentCleared(0,0);
+
+        // Tile at position 1, 1 should be cleared
+        Assertions.assertTrue(testGrid.getWholeGrid()[1][1].getCleared());
+
+        // Tile at position 3, 3 should be cleared
+        Assertions.assertTrue(testGrid.getWholeGrid()[3][3].getCleared());
+
+        // Tile at position 4, 4 should not be cleared
+        Assertions.assertFalse(testGrid.getWholeGrid()[4][4].getCleared());
     }
 
 
@@ -122,7 +142,7 @@ public class GridTest {
     }
 
     @Test
-    public void testAssigningBombsNearby(){
+    public void testAssignBombsNearby(){
         Grid testGrid = new Grid(2,2);
         testGrid.assignBombsNearby();
         boolean bombsAssigned = true;
